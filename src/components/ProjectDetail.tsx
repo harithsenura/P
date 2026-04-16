@@ -60,7 +60,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
       
       {project && (
         <>
-          <div className="pd-body" style={{ paddingTop: '100px' }}>
+          <div className="pd-body" style={{ paddingTop: '40px' }}>
             <div className="pd-main">
               <div style={{ marginBottom: '12px' }}>
                 <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '8px' }}>{project.name}</h1>
