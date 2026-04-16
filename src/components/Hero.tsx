@@ -106,7 +106,7 @@ export default function Hero() {
         onComplete: () => {
           if (imagesRef.current) imagesRef.current.style.display = 'none';
           if (editorRef.current) {
-            editorRef.current.style.display = 'block';
+            editorRef.current.style.display = 'flex';
             gsap.fromTo(editorRef.current,
               { opacity: 0, scale: 0.95 },
               { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' }
@@ -130,7 +130,7 @@ export default function Hero() {
       onComplete: () => {
         if (editorRef.current) editorRef.current.style.display = 'none';
         if (imagesRef.current) {
-          imagesRef.current.style.display = 'grid';
+          imagesRef.current.style.display = 'flex';
           gsap.fromTo(imagesRef.current,
             { opacity: 0, scale: 0.95 },
             { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.2)' }
