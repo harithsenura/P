@@ -397,11 +397,13 @@ nav>*,
 }
 
 .hero-line.ol .inner {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--border-2);
-  font-family: var(--font-playfair-display), serif;
-  font-style: italic;
+  font-family: var(--font-playfair), serif;
   font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ice);
+  -webkit-text-stroke: 0;
 }
 
 .hero-sub {
@@ -1541,15 +1543,28 @@ footer span {
 
   /* Hero mobile fixes */
   #hero {
-    padding: 80px 5vw 40px;
+    padding: 100px 5vw 40px;
     min-height: auto;
     justify-content: flex-start;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    /* Force dark theme for hero on mobile */
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+  }
+
+  /* Force background grid and glows to look like dark mode on mobile */
+  #hero .hero-grid {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    opacity: 0.3;
+  }
+
+  #hero .hero-glow {
+    background: radial-gradient(circle, rgba(144, 184, 207, 0.1) 0%, transparent 65%);
   }
 
   .hero-content {
-    margin-top: 32px;
+    margin-top: 40px;
   }
 
   .hero-badge {
@@ -1557,63 +1572,43 @@ footer span {
   }
 
   .hero-eyebrow {
-    margin-bottom: 10px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.6) !important;
   }
 
   .hero-name {
-    margin-top: 16px;
-    margin-bottom: 32px;
+    margin-top: 24px;
+    margin-bottom: 48px;
     font-size: 19vw;
-    line-height: 0.82;
-    letter-spacing: -0.05em;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
   }
 
-  /* Force dark hero in light mode on mobile */
-  [data-theme="light"] #hero {
-    background: #070707;
-    color: #eeeeee;
-  }
-
-  [data-theme="light"] .hero-nav .nav-logo {
+  /* Force nav visibility on dark mobile hero */
+  .logo, .theme-btn, .nav-cta {
     color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
   }
   
-  [data-theme="light"] .hero-nav .theme-btn,
-  [data-theme="light"] .hero-nav .nav-cta {
+  .logo span {
     color: #ffffff !important;
-    border-color: rgba(255,255,255, 0.2) !important;
-  }
-
-  [data-theme="light"] #hero .hero-grid {
-    opacity: 0.2;
-    background-image: 
-      linear-gradient(to right, #1e1e1e 1px, transparent 1px),
-      linear-gradient(to bottom, #1e1e1e 1px, transparent 1px);
-  }
-
-  [data-theme="light"] #hero .hero-eyebrow,
-  [data-theme="light"] #hero .hero-sub,
-  [data-theme="light"] #hero .hero-desc p {
-    color: #7a7a7a !important;
   }
 
   .hero-name-small {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .hero-sub {
-    margin-top: 10px;
+    margin-top: 12px;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    font-size: 11px;
   }
 
   .hero-meta {
     flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    margin-top: 4px;
+    gap: 16px;
+    align-items: flex-start;
   }
 
   .hero-desc p {

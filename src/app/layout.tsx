@@ -18,9 +18,9 @@ const plexMono = IBM_Plex_Mono({
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-playfair-display',
-  weight: ['400', '700', '800'],
-  style: ['italic'],
+  variable: '--font-playfair',
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
 export const metadata: Metadata = {
