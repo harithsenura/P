@@ -34,7 +34,7 @@ export default function About() {
       <div className="about-layout">
         <div className="about-side">Who I Am</div>
         <div>
-          <p className="about-bio">I am <strong>Harith Senura Divarathna</strong>, a <em>Fullstack Software Engineer</em> passionate about crafting end-to-end digital products — scalable web apps, native Android &amp; iOS apps, and seamless cross-platform experiences. <em>Currently pursuing two degrees in parallel: Software Engineering at SLIIT and Cybersecurity at ESOFT Metro Campus.</em></p>
+          <p className="about-bio">I am <strong>Harith Divarathna</strong>, a <em>Fullstack Software Engineer</em> passionate about crafting end-to-end digital products — scalable web apps, native Android &amp; iOS apps, and seamless cross-platform experiences. <em>Currently pursuing two degrees in parallel: Software Engineering at SLIIT and Cybersecurity at ESOFT Metro Campus.</em></p>
           <div className="edu-row">
             <div className="edu-card"><span className="edu-sch">SLIIT Campus</span><span className="edu-deg">BSc Software Engineering</span><span className="edu-st">Ongoing</span></div>
             <div className="edu-card"><span className="edu-sch">ESOFT Metro Campus</span><span className="edu-deg">Cybersecurity Degree</span><span className="edu-st">Ongoing</span></div>

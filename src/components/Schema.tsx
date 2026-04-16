@@ -2,8 +2,8 @@ export default function Schema() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Harith Senura Divarathna',
-    alternateName: ['Harith Divarathna', 'Harith Senura'],
+    name: 'Harith Divarathna',
+    alternateName: ['Harith Divarathna'],
     url: 'https://harithdivarathna.com',
     jobTitle: 'Fullstack Software Engineer',
     alumniOf: [
