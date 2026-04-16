@@ -243,12 +243,10 @@ export default function Hero() {
               </div>
 
               {/* Showcase Images (hidden initially) */}
+              {/* Showcase Image (profile view) */}
               <div ref={imagesRef} className="showcase-container" style={{ display: 'none' }}>
-                <div className="showcase-img">
-                  <Image src="/s1.png" alt="Craftora - Social Platform" width={600} height={400} />
-                </div>
-                <div className="showcase-img">
-                  <Image src="/s2.png" alt="Craftora - Feed View" width={600} height={400} />
+                <div className="showcase-img showcase-img--profile">
+                  <Image src="/me.jpeg" alt="Harith Divarathna" width={300} height={300} className="profile-image" />
                 </div>
               </div>
             </div>
