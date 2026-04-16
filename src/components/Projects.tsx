@@ -71,15 +71,9 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
         </div>
       </section>
 
-      <section id="projects" style={{ paddingTop: '40px' }}>
-        <div className="sec-hd"><span className="sec-num">04</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Web)</h2><div className="sec-rule"></div></div>
-        <div className="filter-bar">
-          <button className={`fil-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => handleFilter('all')}>All</button>
-          <button className={`fil-btn ${filter === 'web' ? 'active' : ''}`} onClick={() => handleFilter('web')}>Web</button>
-          <button className={`fil-btn ${filter === 'android' ? 'active' : ''}`} onClick={() => handleFilter('android')}>Android</button>
-          <button className={`fil-btn ${filter === 'ios' ? 'active' : ''}`} onClick={() => handleFilter('ios')}>iOS</button>
-          <button className={`fil-btn ${filter === 'cross' ? 'active' : ''}`} onClick={() => handleFilter('cross')}>Cross-Platform</button>
-        </div>
+      <section id="projects" style={{ paddingTop: '120px' }}>
+        <div className="sec-hd"><span className="sec-num">04</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Web)</h2></div>
+
         <div className="projects-grid" ref={gridRef}>
           {webProjects.map((p) => (
             <button 

@@ -67,6 +67,47 @@ a, button, [role="button"] {
   background: var(--border-2);
 }
 
+/* ══ CURSOR ════════════════════════════════════════════════ */
+@media (pointer: fine) {
+  body {
+    cursor: none !important;
+  }
+}
+
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--text);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width .15s, height .15s, background .35s;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(144, 184, 207, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width .2s, height .2s;
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+  .cursor, .cursor-ring {
+    display: none !important;
+  }
+}
+
 /* ══ NAV ════════════════════════════════════════════════════ */
 nav {
   position: fixed;
@@ -641,7 +682,6 @@ section {
 
 /* ══ PROJECTS ═══════════════════════════════════════════════ */
 #projects {
-  border-top: 1px solid var(--border);
   padding-top: 60px;
 }
 
