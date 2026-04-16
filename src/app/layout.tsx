@@ -19,7 +19,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://harithdivarathna.com'),
   title: {
-    default: 'Harith Senura Divarathna | Fullstack Software Engineer',
+    default: 'Harith Divarathna - Full stack Developer',
     template: '%s | Harith Divarathna',
   },
   description: 'Harith Senura Divarathna is a Fullstack Software Engineer specializing in scalable web and mobile products. Expert in Next.js, React Native, Node.js, and Cybersecurity.',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_LK',
     url: 'https://harithdivarathna.com',
-    title: 'Harith Senura Divarathna | Fullstack Software Engineer',
+    title: 'Harith Divarathna - Full stack Developer',
     description: 'Explore the portfolio of Harith Divarathna, a Fullstack Developer crafting premium digital experiences.',
     siteName: 'Harith Divarathna Portfolio',
     images: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Harith Senura Divarathna | Fullstack Software Engineer',
+    title: 'Harith Divarathna - Full stack Developer',
     description: 'Fullstack Software Engineer specializing in modern web and mobile applications.',
     images: ['/icon.png'],
   },
