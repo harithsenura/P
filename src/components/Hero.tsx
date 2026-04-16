@@ -202,7 +202,7 @@ export default function Hero() {
       <div className="hero-badge">Available for work</div>
 
       <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-        <div className="hero-eyebrow">Fullstack Developer · Colombo, Sri Lanka</div>
+        <div className="hero-eyebrow">Fullstack Developer · Sri Lanka</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h1 className="hero-name-small">Harith Divarathna</h1>
           <div className="hero-name hero-name--inline">

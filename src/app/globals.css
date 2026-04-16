@@ -1816,7 +1816,7 @@ footer span {
 
   /* Hero mobile fixes */
   #hero {
-    padding: 100px 5vw 40px;
+    padding: 60px 5vw 20px;
     min-height: auto;
     justify-content: flex-start;
     overflow-wrap: break-word;
@@ -1835,7 +1835,7 @@ footer span {
   }
 
   .hero-content {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 
   .hero-badge {
@@ -1843,7 +1843,7 @@ footer span {
   }
 
   .hero-eyebrow {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
   }
 
