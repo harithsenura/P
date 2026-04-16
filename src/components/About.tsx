@@ -36,8 +36,26 @@ export default function About() {
         <div>
           <p className="about-bio">I am <strong>Harith Divarathna</strong>, a <em>Fullstack Software Engineer</em> passionate about crafting end-to-end digital products — scalable web apps, native Android &amp; iOS apps, and seamless cross-platform experiences. <em>Currently pursuing two degrees in parallel: Software Engineering at SLIIT and Cybersecurity at ESOFT Metro Campus.</em></p>
           <div className="edu-row">
-            <div className="edu-card"><span className="edu-sch">SLIIT Campus</span><span className="edu-deg">BSc Software Engineering</span><span className="edu-st">Ongoing</span></div>
-            <div className="edu-card"><span className="edu-sch">ESOFT Metro Campus</span><span className="edu-deg">Cybersecurity Degree</span><span className="edu-st">Ongoing</span></div>
+            <div className="edu-card">
+              <span className="edu-sch">Core Service</span>
+              <span className="edu-deg">Software Engineering</span>
+              <span className="edu-st">Design, develop, maintain, test, and evaluate</span>
+            </div>
+            <div className="edu-card">
+              <span className="edu-sch">Specialization</span>
+              <span className="edu-deg">Full-Stack Developing</span>
+              <span className="edu-st">Java Spring, .NET, PHP, MERN, Python, Django, Ruby</span>
+            </div>
+            <div className="edu-card">
+              <span className="edu-sch">Creative</span>
+              <span className="edu-deg">Web Designing</span>
+              <span className="edu-st">General, Interactive, e-commerce, event & mission critical</span>
+            </div>
+            <div className="edu-card">
+              <span className="edu-sch">Security</span>
+              <span className="edu-deg">Cyber Security</span>
+              <span className="edu-st">Security analysis, White-hat hacking, Incident investigation</span>
+            </div>
           </div>
         </div>
       </div>

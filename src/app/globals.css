@@ -555,17 +555,20 @@ section {
 }
 
 .edu-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .edu-card {
   border: 1px solid var(--border);
-  padding: 18px 22px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
   transition: var(--tr);
   background: var(--card-bg);
 }
