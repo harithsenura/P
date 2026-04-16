@@ -279,20 +279,29 @@ nav>*,
   background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
   background-size: 72px 72px;
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none;
   transition: var(--tr);
+}
+
+[data-theme="light"] .hero-grid {
+  opacity: 0.15;
 }
 
 .hero-glow {
   position: absolute;
   top: 15%;
-  left: 42%;
+  left: 50%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(144, 184, 207, 0.055) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(144, 184, 207, 0.15) 0%, transparent 65%);
   pointer-events: none;
   transform: translateX(-50%);
+  filter: blur(60px);
+}
+
+[data-theme="light"] .hero-glow {
+  background: radial-gradient(circle, rgba(42, 127, 168, 0.1) 0%, transparent 65%);
 }
 
 .hero-badge {
@@ -1559,9 +1568,13 @@ footer span {
   }
 
   .hero-name {
-    margin-top: 16px;
-    margin-bottom: 36px;
-    font-size: 16vw;
+    margin-top: 24px;
+    margin-bottom: 48px;
+    font-size: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    line-height: 0.9;
   }
 
   .hero-name-small {
