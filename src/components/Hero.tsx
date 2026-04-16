@@ -66,7 +66,7 @@ export default function Hero() {
       <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
         <div className="hero-eyebrow">Fullstack Developer · Colombo, Sri Lanka</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h1 className="hero-name-small" style={{ fontSize: 'inherit', fontWeight: 'inherit', margin: 0 }}>Harith Divarathna</h1>
+          <h1 className="hero-name-small">Harith Divarathna</h1>
           <div className="hero-name" style={{ transform: 'scale(0.85)', transformOrigin: 'center' }}>
             <span className="hero-line"><span className="inner">FULL</span></span>
             <span className="hero-line ol"><span className="inner">STACK</span></span>
