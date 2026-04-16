@@ -279,7 +279,9 @@ nav>*,
   background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
   background-size: 72px 72px;
-  opacity: 0.4;
+  opacity: 0.2;
+  mask-image: radial-gradient(circle at 50% 50%, transparent 10%, black 75%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 10%, black 75%);
   pointer-events: none;
   transition: var(--tr);
 }
@@ -1551,7 +1553,9 @@ footer span {
   /* Force background grid and glows to look like dark mode on mobile */
   #hero .hero-grid {
     border-color: rgba(255, 255, 255, 0.1) !important;
-    opacity: 0.3;
+    opacity: 0.15;
+    mask-image: radial-gradient(circle at 50% 50%, transparent 10%, black 75%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 10%, black 75%);
   }
 
   #hero .hero-glow {
