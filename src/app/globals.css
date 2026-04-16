@@ -279,29 +279,20 @@ nav>*,
   background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
   background-size: 72px 72px;
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none;
   transition: var(--tr);
-}
-
-[data-theme="light"] .hero-grid {
-  opacity: 0.15;
 }
 
 .hero-glow {
   position: absolute;
   top: 15%;
-  left: 50%;
+  left: 42%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(144, 184, 207, 0.15) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(144, 184, 207, 0.055) 0%, transparent 65%);
   pointer-events: none;
   transform: translateX(-50%);
-  filter: blur(60px);
-}
-
-[data-theme="light"] .hero-glow {
-  background: radial-gradient(circle, rgba(42, 127, 168, 0.1) 0%, transparent 65%);
 }
 
 .hero-badge {
@@ -408,6 +399,9 @@ nav>*,
 .hero-line.ol .inner {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--border-2);
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .hero-sub {
@@ -1568,29 +1562,58 @@ footer span {
   }
 
   .hero-name {
-    margin-top: 24px;
-    margin-bottom: 48px;
-    font-size: 20vw;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1em;
-    line-height: 0.9;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    font-size: 19vw;
+    line-height: 0.82;
+    letter-spacing: -0.05em;
+  }
+
+  /* Force dark hero in light mode on mobile */
+  [data-theme="light"] #hero {
+    background: #070707;
+    color: #eeeeee;
+  }
+
+  [data-theme="light"] .hero-nav .nav-logo {
+    color: #ffffff !important;
+  }
+  
+  [data-theme="light"] .hero-nav .theme-btn,
+  [data-theme="light"] .hero-nav .nav-cta {
+    color: #ffffff !important;
+    border-color: rgba(255,255,255, 0.2) !important;
+  }
+
+  [data-theme="light"] #hero .hero-grid {
+    opacity: 0.2;
+    background-image: 
+      linear-gradient(to right, #1e1e1e 1px, transparent 1px),
+      linear-gradient(to bottom, #1e1e1e 1px, transparent 1px);
+  }
+
+  [data-theme="light"] #hero .hero-eyebrow,
+  [data-theme="light"] #hero .hero-sub,
+  [data-theme="light"] #hero .hero-desc p {
+    color: #7a7a7a !important;
   }
 
   .hero-name-small {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .hero-sub {
-    margin-top: 12px;
+    margin-top: 10px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    font-size: 11px;
   }
 
   .hero-meta {
     flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
+    gap: 12px;
+    align-items: center;
+    margin-top: 4px;
   }
 
   .hero-desc p {

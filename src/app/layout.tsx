@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Syne, IBM_Plex_Mono } from 'next/font/google';
+import { Syne, IBM_Plex_Mono, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Schema from '@/components/Schema';
 
@@ -14,6 +14,13 @@ const plexMono = IBM_Plex_Mono({
   variable: '--font-plex-mono',
   weight: ['300', '400', '500'],
   style: ['normal', 'italic'],
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair-display',
+  weight: ['400', '700', '800'],
+  style: ['italic'],
 });
 
 export const metadata: Metadata = {
@@ -82,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className={`${syne.variable} ${plexMono.variable}`}>
+    <html lang="en" data-theme="dark" className={`${syne.variable} ${plexMono.variable} ${playfair.variable}`}>
       <body>
         <Schema />
         {children}
