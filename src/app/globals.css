@@ -57,7 +57,9 @@ body {
 }
 
 /* Fix for iOS Safari touch issues */
-a, button, [role="button"] {
+a,
+button,
+[role="button"] {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -106,11 +108,14 @@ a, button, [role="button"] {
   transition: width .2s, height .2s;
 }
 
-@media (max-width: 900px), (pointer: coarse) {
+@media (max-width: 900px),
+(pointer: coarse) {
   body {
     cursor: auto !important;
   }
-  .cursor, .cursor-ring {
+
+  .cursor,
+  .cursor-ring {
     display: none !important;
   }
 }
@@ -154,7 +159,8 @@ nav {
   backdrop-filter: blur(10px);
 }
 
-nav > *, .hero-nav > * {
+nav>*,
+.hero-nav>* {
   pointer-events: auto;
 }
 
@@ -241,7 +247,7 @@ nav > *, .hero-nav > * {
 
 [data-theme="dark"] .nav-cta {
   color: #ffffff !important;
-  border-color: rgba(255,255,255,0.2) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .nav-cta:hover {
@@ -261,7 +267,7 @@ nav > *, .hero-nav > * {
 }
 
 .hero-content {
-  margin-top: 20px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -309,9 +315,9 @@ nav > *, .hero-nav > * {
 }
 
 [data-theme="dark"] .hero-badge {
-  background: rgba(255,255,255,0.05) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
-  border-color: rgba(255,255,255,0.2) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .hero-badge::before {
@@ -556,9 +562,21 @@ section {
 
 .edu-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 60px;
+}
+
+@media (max-width: 1100px) {
+  .edu-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .edu-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .edu-card {
