@@ -1075,6 +1075,15 @@ section {
   align-items: start;
 }
 
+.pd-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.1;
+  color: var(--text-1);
+}
+
 .pd-main {
   display: flex;
   flex-direction: column;
@@ -1609,18 +1618,22 @@ footer span {
   .pd-sidebar {
     position: static !important;
     order: 2;
+    width: 100%;
   }
 
   .pd-main {
     order: 1;
     gap: 32px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
-  .pd-main h1 {
+  .pd-title {
+    font-size: 9.5vw !important;
+    line-height: 1.1;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    font-size: 11vw !important;
-    line-height: 1.1;
+    margin-bottom: 12px;
   }
 
   .pd-gal-grid {
