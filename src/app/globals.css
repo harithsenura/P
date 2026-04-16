@@ -253,7 +253,7 @@ nav > *, .hero-nav > * {
 /* ══ HERO ════════════════════════════════════════════════════ */
 #hero {
   min-height: 100vh;
-  padding: 140px 6vw 20px;
+  padding: 80px 6vw 60px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -261,7 +261,7 @@ nav > *, .hero-nav > * {
 }
 
 .hero-content {
-  margin-top: auto;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   width: 100%;
