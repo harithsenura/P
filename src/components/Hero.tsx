@@ -41,13 +41,18 @@ export default function Hero() {
 
   return (
     <section id="hero" ref={heroRef} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
+      {/* Background elements first */}
+      <div className="hero-grid"></div>
+      <div className="hero-glow"></div>
+
+      {/* Interactable/Top-level elements next */}
       <div className="hero-nav">
         <a href="#" className="nav-logo">HD<span>.</span></a>
         <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <button 
-            ref={btnRef} 
-            className="theme-btn" 
-            onClick={toggleTheme} 
+          <button
+            ref={btnRef}
+            className="theme-btn"
+            onClick={toggleTheme}
             title="Toggle theme"
           >
             {isDark ? <Sun size={15} /> : <Moon size={15} />}
@@ -55,11 +60,9 @@ export default function Hero() {
           <a href="#contact" className="nav-cta">Hire Me</a>
         </div>
       </div>
-      
-      <div className="hero-grid"></div>
-      <div className="hero-glow"></div>
+
       <div className="hero-badge">Available for work</div>
-      
+
       <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
         <div className="hero-eyebrow">Fullstack Developer · Colombo, Sri Lanka</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

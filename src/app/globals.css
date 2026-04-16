@@ -136,14 +136,14 @@ nav {
 /* ══ HERO NAV (Integrated) ═════ */
 .hero-nav {
   width: 100%;
-  padding: 20px 6vw;
+  padding: 24px 6vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 100;
   border-bottom: 1px solid transparent;
   transition: var(--tr);
 }
@@ -288,6 +288,7 @@ nav > *, .hero-nav > * {
   gap: 10px;
   background: var(--surface);
   transition: var(--tr);
+  z-index: 90;
 }
 
 .hero-badge::before {
