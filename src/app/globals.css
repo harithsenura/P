@@ -143,7 +143,7 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 999;
   border-bottom: 1px solid transparent;
   transition: var(--tr);
 }
@@ -164,6 +164,12 @@ nav > *, .hero-nav > * {
   letter-spacing: -0.5px;
   color: var(--text);
   text-decoration: none;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+[data-theme="dark"] .nav-logo {
+  color: #ffffff !important;
 }
 
 .nav-logo span {
@@ -207,6 +213,11 @@ nav > *, .hero-nav > * {
   justify-content: center;
   font-size: 15px;
   transition: var(--tr);
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .theme-btn {
+  color: #ffffff !important;
 }
 
 .theme-btn:hover {
@@ -225,6 +236,12 @@ nav > *, .hero-nav > * {
   color: var(--text);
   text-decoration: none;
   transition: var(--tr);
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .nav-cta {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.2) !important;
 }
 
 .nav-cta:hover {
@@ -288,7 +305,13 @@ nav > *, .hero-nav > * {
   gap: 10px;
   background: var(--surface);
   transition: var(--tr);
-  z-index: 90;
+  z-index: 998;
+}
+
+[data-theme="dark"] .hero-badge {
+  background: rgba(255,255,255,0.05) !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.2) !important;
 }
 
 .hero-badge::before {

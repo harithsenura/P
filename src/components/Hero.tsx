@@ -15,7 +15,7 @@ export default function Hero() {
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    tl.from('.hero-nav', { y: -20, opacity: 0, duration: 0.8 }, '+=0.2')
+    tl.from('.hero-nav', { y: -20, duration: 0.8 }, '+=0.2')
       .from('.hero-badge', { y: -20, opacity: 0, duration: 0.6 }, '-=0.4')
       .from('.hero-eyebrow', { y: 24, opacity: 0, duration: 0.6 }, '-=0.35')
       .from('.hero-name-small', { y: 16, opacity: 0, duration: 0.5 }, '-=0.3')
