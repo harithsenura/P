@@ -522,9 +522,17 @@ nav>*,
   transition: var(--tr);
 }
 
-.mac-dot--red { background: #ff5f57; }
-.mac-dot--yellow { background: #febc2e; }
-.mac-dot--green { background: #28c840; }
+.mac-dot--red {
+  background: #ff5f57;
+}
+
+.mac-dot--yellow {
+  background: #febc2e;
+}
+
+.mac-dot--green {
+  background: #28c840;
+}
 
 .mac-title {
   font-family: var(--font-plex-mono), monospace;
@@ -629,14 +637,33 @@ nav>*,
   white-space: pre;
 }
 
-.code-keyword { color: #c678dd; }
-.code-string { color: #98c379; }
-.code-func { color: #61afef; }
-.code-default { color: var(--text); }
+.code-keyword {
+  color: #c678dd;
+}
 
-[data-theme="light"] .code-keyword { color: #8839ef; }
-[data-theme="light"] .code-string { color: #40a02b; }
-[data-theme="light"] .code-func { color: #1e66f5; }
+.code-string {
+  color: #98c379;
+}
+
+.code-func {
+  color: #61afef;
+}
+
+.code-default {
+  color: var(--text);
+}
+
+[data-theme="light"] .code-keyword {
+  color: #8839ef;
+}
+
+[data-theme="light"] .code-string {
+  color: #40a02b;
+}
+
+[data-theme="light"] .code-func {
+  color: #1e66f5;
+}
 
 .code-cursor {
   display: inline-block;
@@ -646,8 +673,15 @@ nav>*,
 }
 
 @keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ── Status Bar ── */
@@ -1816,7 +1850,7 @@ footer span {
 
   /* Hero mobile fixes */
   #hero {
-    padding: 60px 5vw 20px;
+    padding: 70px 5vw 20px;
     min-height: auto;
     justify-content: flex-start;
     overflow-wrap: break-word;
