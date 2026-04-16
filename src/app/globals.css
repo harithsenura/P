@@ -397,13 +397,8 @@ nav>*,
 }
 
 .hero-line.ol .inner {
-  font-family: var(--font-playfair), serif;
-  font-weight: 400;
-  font-style: italic;
-  text-transform: none;
-  letter-spacing: 0;
-  color: var(--ice);
-  -webkit-text-stroke: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--border-2);
 }
 
 .hero-sub {
@@ -1586,11 +1581,13 @@ footer span {
   }
 
   /* Force nav visibility on dark mobile hero */
-  .logo, .theme-btn, .nav-cta {
+  .logo,
+  .theme-btn,
+  .nav-cta {
     color: #ffffff !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
   }
-  
+
   .logo span {
     color: #ffffff !important;
   }

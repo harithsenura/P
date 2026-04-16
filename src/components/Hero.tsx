@@ -47,7 +47,7 @@ export default function Hero() {
 
       {/* Interactable/Top-level elements next */}
       <div className="hero-nav">
-        <a href="#" className="nav-logo">HD<span>.</span></a>
+        <a href="#" className="nav-logo">Harith<span>.</span></a>
         <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
             ref={btnRef}
