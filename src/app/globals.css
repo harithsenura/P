@@ -200,7 +200,7 @@ nav > *, .hero-nav > * {
   height: 36px;
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--text-2);
+  color: var(--text);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -222,7 +222,7 @@ nav > *, .hero-nav > * {
   text-transform: uppercase;
   padding: 9px 20px;
   border: 1px solid var(--border-2);
-  color: var(--text-2);
+  color: var(--text);
   text-decoration: none;
   transition: var(--tr);
 }
