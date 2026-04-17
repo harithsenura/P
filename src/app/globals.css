@@ -1537,6 +1537,10 @@ section {
   gap: 8px;
 }
 
+.pd-mobile-links {
+  display: none;
+}
+
 .pd-lnk {
   font-family: var(--font-plex-mono), monospace;
   font-size: 11px;
@@ -2034,6 +2038,15 @@ footer span {
   .pd-gal-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 6px;
+  }
+
+  .pd-mobile-links {
+    display: block !important;
+    margin-bottom: 24px;
+  }
+
+  .pd-desktop-links {
+    display: none !important;
   }
 }
 

@@ -66,6 +66,15 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 <h1 className="pd-title">{project.name}</h1>
                 <p style={{ fontFamily: 'var(--font-plex-mono), monospace', fontSize: '13px', color: 'var(--text-2)' }}>{project.tagline}</p>
               </div>
+
+              {/* Mobile Links - Shown only on mobile */}
+              <div className="pd-info pd-mobile-links">
+                <div className="pd-links">
+                  <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
+                  <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+
               <div><div className="pd-sec-lbl">Overview</div><p className="pd-overview" id="pdDesc">{project.desc}</p></div>
               <div><div className="pd-sec-lbl">Screenshots</div><div className="pd-gal-grid" id="pdGallery">
                 {project.gallery.map(img => <div key={img} className="pd-gal-box"><img className="pd-gal-img" src={img} alt="" loading="lazy" /></div>)}
@@ -80,7 +89,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 {project.tech.map(t => <span key={t} className="pd-tpill">{t}</span>)}
               </div></div>
               <div className="pd-info"><span className="pd-info-lbl">Category</span><span className="pd-cat-val" id="pdCat">{project.plat}</span></div>
-              <div className="pd-info"><span className="pd-info-lbl">Links</span><div className="pd-links" id="pdLinks">
+              <div className="pd-info pd-desktop-links"><span className="pd-info-lbl">Links</span><div className="pd-links" id="pdLinks">
                 <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
                 <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
               </div></div>
