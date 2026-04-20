@@ -246,7 +246,7 @@ export default function Hero() {
               {/* Showcase Image (profile view) */}
               <div ref={imagesRef} className="showcase-container" style={{ display: 'none' }}>
                 <div className="showcase-img showcase-img--profile">
-                  <Image src="/me.jpeg" alt="Harith Divarathna" width={300} height={300} className="profile-image" />
+                  <Image src="/me.JPG" alt="Harith Divarathna" width={300} height={300} className="profile-image" />
                 </div>
               </div>
             </div>
