@@ -304,24 +304,23 @@ nav>*,
   font-family: var(--font-plex-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: #ffffff !important;
+  color: var(--text-3);
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border: 1px solid var(--border);
   padding: 10px 16px;
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: var(--surface);
   transition: var(--tr);
   z-index: 998;
 }
 
-[data-theme="light"] .hero-badge {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border-color: #000000 !important;
+[data-theme="dark"] .hero-badge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
-
 
 .hero-badge::before {
   content: '';
@@ -2159,31 +2158,6 @@ section {
 .wwm-social-card:hover .wwm-sc-arrow {
   color: var(--brand, var(--ice));
   transform: translate(3px, -3px);
-}
-
-/* ── Touch / Mobile: always show brand colours (no hover on touch screens) ── */
-@media (pointer: coarse) {
-  /* Bottom accent — always visible */
-  .wwm-social-card::before {
-    transform: scaleX(1);
-  }
-
-  /* Icon box — brand border + tint */
-  .wwm-sc-icon {
-    border-color: var(--brand, var(--ice));
-    color: var(--brand, var(--ice));
-    background: color-mix(in srgb, var(--brand, var(--ice)) 10%, transparent);
-  }
-
-  /* Arrow — brand colour */
-  .wwm-sc-arrow {
-    color: var(--brand, var(--ice));
-  }
-
-  /* Card background lift so it reads as "active" */
-  .wwm-social-card {
-    background: var(--surface);
-  }
 }
 
 /* ── Responsive: 900px (tablet) ── */
