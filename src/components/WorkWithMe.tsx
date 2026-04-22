@@ -12,8 +12,8 @@ const SOCIAL_LINKS = [
   {
     id: 'whatsapp',
     label: 'WhatsApp',
-    sub: '+94 7X XXX XXXX',
-    href: 'https://wa.me/94XXXXXXXXX',
+    sub: '+94 772702123',
+    href: 'https://wa.me/94772702123',
     color: '#25D366',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
