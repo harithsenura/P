@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Briefcase, Users, ShieldCheck, GraduationCap } from 'lucide-react';
+import { Briefcase, Users } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,8 +30,7 @@ export default function WorkWithMe() {
       <div className="collab-grid">
         <div className="collab-card"><span className="cc-icon"><Briefcase size={26} /></span><div className="cc-title">Freelance Projects</div><p className="cc-desc">Need a web app, mobile app, or full product built? I take on freelance projects with a focus on clean architecture, great UX, and on-time delivery.</p><a href="#contact" className="cc-cta">Let&apos;s talk →</a></div>
         <div className="collab-card"><span className="cc-icon"><Users size={26} /></span><div className="cc-title">Team Collaboration</div><p className="cc-desc">Open to joining startups or open-source projects. Always excited to work with talented teams building meaningful products.</p><a href="#contact" className="cc-cta">Join forces →</a></div>
-        <div className="collab-card"><span className="cc-icon"><ShieldCheck size={26} /></span><div className="cc-title">Security Consulting</div><p className="cc-desc">Leveraging Cybersecurity studies at ESOFT, I can help audit your web or mobile app for vulnerabilities and provide actionable fixes.</p><a href="#contact" className="cc-cta">Get an audit →</a></div>
-        <div className="collab-card"><span className="cc-icon"><GraduationCap size={26} /></span><div className="cc-title">Mentorship</div><p className="cc-desc">Fellow SLIIT or ESOFT student? Happy to pair-program, review code, or share resources. Let&apos;s grow in the Sri Lanka dev community.</p><a href="#contact" className="cc-cta">Connect →</a></div>
+
       </div>
     </section>
   );
