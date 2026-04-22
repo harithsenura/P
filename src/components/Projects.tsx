@@ -65,7 +65,7 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
                 <p className="pc-desc">{p.short}</p>
                 <div className="pc-tech">{p.tech.slice(0, 4).map((t, i) => <span key={i} className="pc-pill">{t}</span>)}</div>
               </div>
-              <div className="pc-arrow">↗</div>
+              <div className="pc-view-btn">View</div>
             </button>
           ))}
         </div>
@@ -92,7 +92,7 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
                 <p className="pc-desc">{p.short}</p>
                 <div className="pc-tech">{p.tech.slice(0, 4).map((t, i) => <span key={i} className="pc-pill">{t}</span>)}</div>
               </div>
-              <div className="pc-arrow">↗</div>
+              <div className="pc-view-btn">View</div>
             </button>
           ))}
         </div>
@@ -118,7 +118,7 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
                 <p className="pc-desc">{p.short}</p>
                 <div className="pc-tech">{p.tech.slice(0, 4).map((t, i) => <span key={i} className="pc-pill">{t}</span>)}</div>
               </div>
-              <div className="pc-arrow">↗</div>
+              <div className="pc-view-btn">View</div>
             </button>
           ))}
         </div>

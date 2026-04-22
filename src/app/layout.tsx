@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   authors: [{ name: 'Harith Divarathna' }],
   creator: 'Harith Divarathna',
   icons: {
-    icon: '/favicon-circle.png',
-    apple: '/favicon-circle.png',
+    icon: '/2.png',
+    apple: '/2.png',
   },
   openGraph: {
     type: 'website',

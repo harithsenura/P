@@ -1238,18 +1238,31 @@ section {
   transition: var(--tr);
 }
 
-.pc-arrow {
+.pc-view-btn {
   position: absolute;
   bottom: 22px;
   right: 22px;
-  font-size: 18px;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--text-3);
-  transition: all .25s;
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: var(--surface-2);
+  transition: all .35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.project-card:hover .pc-arrow {
-  color: var(--text);
-  transform: translate(3px, -3px);
+.project-card:hover .pc-view-btn {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--text) 20%, transparent);
 }
 
 /* ══ PROJECT DETAIL OVERLAY ════════════════════════════════ */
