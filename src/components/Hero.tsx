@@ -48,7 +48,7 @@ export default function Hero() {
       .from('.hero-badge', { y: -10, opacity: 0, scale: 0.95, duration: 0.5 }, '-=0.4')
       .from('.hero-eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.4')
       .from('.hero-name-small', { y: 15, opacity: 0, duration: 0.5 }, '-=0.4')
-      .from('.hero-line .inner', { y: '115%', stagger: 0.06, duration: 0.8, ease: 'power4.out' }, '-=0.35')
+      .from('.hero-name', { y: 20, opacity: 0, scale: 0.97, duration: 0.6, ease: 'power4.out' }, '-=0.35')
       .from('.hero-editor-wrap', { y: 25, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.55')
       .from('.hero-desc', { y: 10, opacity: 0, duration: 0.5 }, '-=0.4')
       .from('.hero-scroll', { y: 10, opacity: 0, duration: 0.4 }, '-=0.3');
