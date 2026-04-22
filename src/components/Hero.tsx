@@ -42,17 +42,16 @@ export default function Hero() {
   const typingInterval = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
-    tl.from('.hero-nav', { y: -20, duration: 0.8 }, '+=0.2')
-      .from('.hero-badge', { y: -20, opacity: 0, duration: 0.6 }, '-=0.4')
-      .from('.hero-eyebrow', { y: 24, opacity: 0, duration: 0.6 }, '-=0.35')
-      .from('.hero-name-small', { y: 16, opacity: 0, duration: 0.5 }, '-=0.3')
-      .from('.hero-line .inner', { y: '115%', stagger: 0.13, duration: 1.1, ease: 'power4.out' }, '-=0.25')
-      .from('.hero-sub', { y: 16, opacity: 0, duration: 0.6 }, '-=0.5')
-      .from('.hero-desc', { y: 16, opacity: 0, duration: 0.6 }, '-=0.5')
-      .from('.hero-editor-wrap', { y: 30, opacity: 0, duration: 0.7, ease: 'power2.out' }, '-=0.3')
-      .from('.hero-scroll', { y: 16, opacity: 0, duration: 0.5 }, '-=0.5');
+    tl.from('.hero-nav', { y: -15, opacity: 0, duration: 0.6 })
+      .from('.hero-badge', { y: -10, opacity: 0, scale: 0.95, duration: 0.5 }, '-=0.4')
+      .from('.hero-eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.4')
+      .from('.hero-name-small', { y: 15, opacity: 0, duration: 0.5 }, '-=0.4')
+      .from('.hero-line .inner', { y: '115%', stagger: 0.06, duration: 0.8, ease: 'power4.out' }, '-=0.35')
+      .from('.hero-editor-wrap', { y: 25, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.55')
+      .from('.hero-desc', { y: 10, opacity: 0, duration: 0.5 }, '-=0.4')
+      .from('.hero-scroll', { y: 10, opacity: 0, duration: 0.4 }, '-=0.3');
 
     gsap.to('.hero-grid', {
       scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true },
