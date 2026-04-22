@@ -2160,6 +2160,31 @@ section {
   transform: translate(3px, -3px);
 }
 
+/* ── Touch / Mobile: always show brand colours (no hover on touch screens) ── */
+@media (pointer: coarse) {
+  /* Bottom accent — always visible */
+  .wwm-social-card::before {
+    transform: scaleX(1);
+  }
+
+  /* Icon box — brand border + tint */
+  .wwm-sc-icon {
+    border-color: var(--brand, var(--ice));
+    color: var(--brand, var(--ice));
+    background: color-mix(in srgb, var(--brand, var(--ice)) 10%, transparent);
+  }
+
+  /* Arrow — brand colour */
+  .wwm-sc-arrow {
+    color: var(--brand, var(--ice));
+  }
+
+  /* Card background lift so it reads as "active" */
+  .wwm-social-card {
+    background: var(--surface);
+  }
+}
+
 /* ── Responsive: 900px (tablet) ── */
 @media (max-width: 900px) {
   .wwm-contact-panel {
