@@ -127,7 +127,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 500;
-  padding: 20px 6vw;
+  padding: 12px 6vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -141,7 +141,7 @@ nav {
 /* ══ HERO NAV (Integrated) ═════ */
 .hero-nav {
   width: 100%;
-  padding: 24px 6vw;
+  padding: 16px 6vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2532,7 +2532,11 @@ footer span {
 
 @media (max-width:680px) {
   nav {
-    padding: 14px 5vw;
+    padding: 10px 5vw;
+  }
+
+  .hero-nav {
+    padding: 10px 5vw;
   }
 
   .nav-links {
