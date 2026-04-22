@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ProjectType } from '@/data/projects';
@@ -26,6 +26,33 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [project]);
+
+  const handleAppStoreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const btn = e.currentTarget;
+    if (btn.textContent === 'Coming Soon...') return;
+    
+    gsap.to(btn, { 
+      opacity: 0, 
+      y: -2,
+      duration: 0.2, 
+      onComplete: () => {
+        btn.textContent = 'Coming Soon...';
+        gsap.to(btn, { opacity: 1, y: 0, duration: 0.2 });
+        setTimeout(() => {
+          gsap.to(btn, { 
+            opacity: 0, 
+            y: 2,
+            duration: 0.2, 
+            onComplete: () => {
+              btn.textContent = 'Download on App Store';
+              gsap.to(btn, { opacity: 1, y: 0, duration: 0.2 });
+            }
+          });
+        }, 2000);
+      }
+    });
+  };
 
   const handleClose = () => {
     if (!overlayRef.current) return;
@@ -70,8 +97,14 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               {/* Mobile Links - Shown only on mobile */}
               <div className="pd-info pd-mobile-links">
                 <div className="pd-links">
-                  <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
-                  <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                  {project.id === 'self' ? (
+                    <a href="#" className="pd-lnk pri" onClick={handleAppStoreClick}>Download on App Store</a>
+                  ) : (
+                    <>
+                      <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
+                      <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -90,8 +123,14 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               </div></div>
               <div className="pd-info"><span className="pd-info-lbl">Category</span><span className="pd-cat-val" id="pdCat">{project.plat}</span></div>
               <div className="pd-info pd-desktop-links"><span className="pd-info-lbl">Links</span><div className="pd-links" id="pdLinks">
-                <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
-                <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                {project.id === 'self' ? (
+                  <a href="#" className="pd-lnk pri" onClick={handleAppStoreClick}>Download on App Store</a>
+                ) : (
+                  <>
+                    <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
+                    <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                  </>
+                )}
               </div></div>
             </div>
           </div>
