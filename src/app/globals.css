@@ -2169,47 +2169,60 @@ section {
   .wwm-panel-left {
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 40px 36px;
+    padding: 36px 32px;
+  }
+
+  .wwm-panel-heading {
+    font-size: 28px;
+  }
+
+  .wwm-panel-heading br {
+    display: none;
+  }
+
+  .wwm-panel-desc {
+    margin-bottom: 24px;
+  }
+
+  .wwm-response-badge {
+    margin-bottom: 28px;
   }
 
   .wwm-contact-info {
-    margin-top: 28px;
+    margin-top: 24px;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0;
   }
 
   .wwm-info-row {
-    flex: 1 1 200px;
-    border-bottom: 1px solid var(--border);
+    flex: 1 1 auto;
+    min-width: 0;
     padding: 14px 0;
+    border-bottom: none;
+  }
+
+  .wwm-info-row:first-child {
+    padding-right: 24px;
+    border-right: 1px solid var(--border);
+    margin-right: 24px;
   }
 
   .wwm-panel-right {
-    padding: 40px 36px;
+    padding: 36px 32px;
   }
 
   .wwm-social-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Fix border on social cards */
   .wwm-social-card {
-    border-right: none;
-  }
-
-  .wwm-social-card:last-child {
-    border-right: none;
-  }
-
-  /* Add right border to every 3rd card */
-  .wwm-social-card:nth-child(3n) {
-    border-right: 1px solid var(--border);
-  }
-
-  /* Bottom border for top row */
-  .wwm-social-card:nth-child(-n+3) {
+    border: 1px solid var(--border);
     border-bottom: none;
+  }
+
+  .wwm-social-card:nth-child(n+4) {
+    border-bottom: 1px solid var(--border);
   }
 }
 
@@ -2217,35 +2230,91 @@ section {
 @media (max-width: 680px) {
   .wwm-contact-panel {
     margin-top: 48px;
+    border: none;
   }
 
   .wwm-panel-left {
-    padding: 32px 24px;
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .wwm-panel-heading {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .wwm-panel-desc {
+    font-size: 11px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .wwm-response-badge {
+    font-size: 10px;
+    padding: 8px 14px;
+    margin-bottom: 24px;
+    gap: 8px;
+  }
+
+  .wwm-contact-info {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 0;
+  }
+
+  .wwm-info-row {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    min-width: 0;
+  }
+
+  .wwm-info-row:first-child {
+    padding-right: 0;
+    border-right: none;
+    margin-right: 0;
+  }
+
+  .wwm-info-row:last-child {
+    border-bottom: none;
+  }
+
+  .wwm-info-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
   }
 
   .wwm-panel-right {
-    padding: 32px 24px;
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    border-top: none;
   }
 
   .wwm-field-row {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 18px;
+  }
+
+  .wwm-input {
+    font-size: 16px;
+    padding: 14px 14px;
+  }
+
+  .wwm-textarea {
+    min-height: 120px;
   }
 
   .wwm-submit {
     width: 100%;
     align-self: stretch;
+    height: 50px;
   }
 
-  .wwm-contact-info {
-    flex-direction: column;
-  }
-
-  .wwm-info-text {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: initial;
-    word-break: break-all;
+  .wwm-success {
+    padding: 48px 16px;
+    min-height: 260px;
   }
 
   .wwm-social-section {
@@ -2256,26 +2325,47 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Reset all borders then re-add */
   .wwm-social-card {
-    border-right: none;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: 24px 16px 20px;
   }
 
-  .wwm-social-card:nth-child(3n) {
-    border-right: none;
+  /* Last row gets bottom border */
+  .wwm-social-card:nth-last-child(-n+2) {
+    border-bottom: 1px solid var(--border);
   }
 
-  .wwm-social-card:nth-child(even) {
-    border-right: 1px solid var(--border);
-  }
-
-  .wwm-social-card:last-child {
-    border-right: 1px solid var(--border);
+  /* Single remaining card (5th) gets full bottom border */
+  .wwm-social-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 24px;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
   }
 }
 
 /* ── Responsive: 420px (small phones) ── */
 @media (max-width: 420px) {
+  .wwm-panel-left {
+    padding: 24px 18px;
+  }
+
+  .wwm-panel-right {
+    padding: 24px 18px;
+  }
+
+  .wwm-panel-heading {
+    font-size: 22px;
+  }
+
+  .wwm-panel-eyebrow {
+    font-size: 9px;
+    margin-bottom: 14px;
+  }
+
   .wwm-social-grid {
     grid-template-columns: 1fr;
   }
@@ -2283,25 +2373,42 @@ section {
   .wwm-social-card {
     flex-direction: row;
     justify-content: flex-start;
-    padding: 18px 20px;
-    gap: 16px;
-    border-right: 1px solid var(--border) !important;
+    padding: 16px 18px;
+    gap: 14px;
+    border: 1px solid var(--border);
     border-bottom: none;
-    border-top: none;
   }
 
-  .wwm-social-card:first-child {
-    border-top: 1px solid var(--border);
+  .wwm-social-card:last-child {
+    border-bottom: 1px solid var(--border);
+    grid-column: auto;
+    justify-content: flex-start;
+  }
+
+  .wwm-sc-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .wwm-sc-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .wwm-sc-name {
+    font-size: 10px;
   }
 
   .wwm-sc-arrow {
     margin-left: auto;
+    font-size: 12px;
   }
 
   .wwm-sc-sub {
     display: none;
   }
 }
+
 
 /* ══ CONTACT ════════════════════════════════════════════════ */
 #contact {
