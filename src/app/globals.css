@@ -304,28 +304,22 @@ nav>*,
   font-family: var(--font-plex-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--text-2);
+  color: #ffffff !important;
   text-transform: uppercase;
-  border: 1px solid var(--border-2);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
   padding: 10px 16px;
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.08) !important;
   transition: var(--tr);
   z-index: 998;
 }
 
-[data-theme="dark"] .hero-badge {
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(255, 255, 255, 0.18) !important;
-}
-
 [data-theme="light"] .hero-badge {
-  background: var(--surface) !important;
-  color: var(--text) !important;
-  border-color: var(--border-2) !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
 }
 
 
