@@ -1711,101 +1711,171 @@ section {
 }
 
 /* ══ WORK WITH ME — FORM & SOCIAL ══════════════════════════ */
+/* ══ WORK WITH ME — CONTACT PANEL ═══════════════════════════ */
 
-/* ── Two-column contact layout ── */
-.wwm-contact-wrap {
+/* ── Contact two-column panel ── */
+.wwm-contact-panel {
   margin-top: 64px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
   border: 1px solid var(--border);
   background: var(--card-bg);
-  padding: 0;
-  transition: background 0.35s ease, border-color 0.35s ease;
-  position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-.wwm-contact-wrap::after {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(144, 184, 207, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-
-
-.wwm-form-header {
-  padding: 48px 40px;
+/* Left info column */
+.wwm-panel-left {
+  padding: 52px 44px;
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 1;
+  gap: 0;
   background: var(--surface);
-  transition: background 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-.wwm-form-eyebrow {
+/* Decorative glow */
+.wwm-panel-left::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(144, 184, 207, 0.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.wwm-panel-eyebrow {
   font-family: var(--font-plex-mono), monospace;
   font-size: 10px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ice);
-  display: block;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
-.wwm-form-title {
-  font-size: clamp(22px, 3vw, 34px);
+.wwm-panel-heading {
+  font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 12px;
-  line-height: 1.1;
+  line-height: 1.05;
+  margin-bottom: 20px;
 }
 
-.wwm-form-sub {
+.wwm-panel-desc {
   font-family: var(--font-plex-mono), monospace;
   font-size: 12px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--text-2);
+  margin-bottom: 32px;
 }
 
-.wwm-reply-badge {
-  display: inline-block;
-  background: color-mix(in srgb, var(--ice) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--ice) 35%, transparent);
+/* 24h response badge */
+.wwm-response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid color-mix(in srgb, var(--ice) 30%, transparent);
+  background: color-mix(in srgb, var(--ice) 7%, transparent);
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11px;
+  color: var(--text-2);
+  margin-bottom: 36px;
+  width: fit-content;
+}
+
+.wwm-response-badge strong {
   color: var(--ice);
-  padding: 2px 8px;
-  border-radius: 100px;
-  font-size: 10px;
-  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
-.wwm-form-body {
-  padding: 48px 40px;
-  position: relative;
-  z-index: 1;
-  min-width: 0;
+.wwm-response-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ice);
+  flex-shrink: 0;
+  animation: pulse 2.2s ease-in-out infinite;
 }
 
+/* Contact info rows */
+.wwm-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.wwm-info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-2);
+  transition: color 0.2s ease;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.wwm-info-row:last-child {
+  border-bottom: none;
+}
+
+.wwm-info-row:hover {
+  color: var(--ice);
+}
+
+.wwm-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  flex-shrink: 0;
+  color: var(--text-3);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.wwm-info-row:hover .wwm-info-icon {
+  border-color: var(--ice);
+  color: var(--ice);
+  background: color-mix(in srgb, var(--ice) 8%, transparent);
+}
+
+.wwm-info-text {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Right form column */
+.wwm-panel-right {
+  padding: 52px 48px;
+}
+
+/* Form */
 .wwm-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
+  height: 100%;
 }
 
 .wwm-field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  min-width: 0;
+  gap: 16px;
 }
 
 .wwm-field {
@@ -1817,26 +1887,30 @@ section {
 .wwm-label {
   font-family: var(--font-plex-mono), monospace;
   font-size: 10px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-3);
+  color: var(--text-2);
   transition: color 0.2s;
 }
 
+.wwm-field:focus-within .wwm-label {
+  color: var(--ice);
+}
+
 .wwm-input {
-  box-sizing: border-box;
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
   font-family: var(--font-plex-mono), monospace;
   font-size: 13px;
-  padding: 13px 14px;
+  padding: 13px 16px;
   outline: none;
   transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   width: 100%;
   resize: none;
   border-radius: 0;
   -webkit-appearance: none;
+  line-height: 1.5;
   display: block;
 }
 
@@ -1850,23 +1924,19 @@ section {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ice) 10%, transparent);
 }
 
-.wwm-input:focus + .wwm-label,
-.wwm-field:focus-within .wwm-label {
-  color: var(--ice);
-}
-
 .wwm-textarea {
-  min-height: 140px;
+  min-height: 148px;
   line-height: 1.7;
 }
 
+/* Submit button */
 .wwm-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   align-self: flex-start;
-  padding: 13px 28px;
+  padding: 14px 36px;
   background: var(--text);
   color: var(--bg);
   border: 1px solid var(--text);
@@ -1875,9 +1945,9 @@ section {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 160px;
-  min-height: 46px;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+  min-width: 172px;
+  height: 48px;
 }
 
 .wwm-submit:hover:not(:disabled) {
@@ -1895,6 +1965,7 @@ section {
   cursor: not-allowed;
 }
 
+/* Spinner */
 .wwm-spinner {
   display: inline-block;
   width: 16px;
@@ -1917,7 +1988,9 @@ section {
   justify-content: center;
   text-align: center;
   padding: 60px 24px;
-  gap: 16px;
+  gap: 14px;
+  height: 100%;
+  min-height: 300px;
 }
 
 .wwm-success-icon {
@@ -1938,7 +2011,7 @@ section {
 }
 
 .wwm-success-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -1948,6 +2021,7 @@ section {
   font-size: 12px;
   color: var(--text-2);
   line-height: 1.75;
+  max-width: 280px;
 }
 
 .wwm-reset-btn {
@@ -1961,7 +2035,7 @@ section {
   padding: 10px 22px;
   cursor: pointer;
   transition: all 0.25s ease;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .wwm-reset-btn:hover {
@@ -1970,169 +2044,192 @@ section {
   border-color: var(--text);
 }
 
-/* ── Social Section ── */
+/* ══ WORK WITH ME — SOCIAL SECTION ══════════════════════════ */
 .wwm-social-section {
   margin-top: 64px;
 }
 
-.wwm-social-lbl {
+.wwm-social-hd {
   display: flex;
   align-items: baseline;
   gap: 18px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .wwm-social-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--border);
-  width: 100%;
 }
 
-.wwm-social-item {
-  background: var(--card-bg);
-  padding: 28px 24px;
+/* Social card */
+.wwm-social-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 20px 28px;
   text-decoration: none;
   color: var(--text-2);
-  transition: background 0.2s, color 0.2s;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-right: none;
   position: relative;
   overflow: hidden;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  text-align: center;
 }
 
-.wwm-social-item::after {
+.wwm-social-card:last-child {
+  border-right: 1px solid var(--border);
+}
+
+/* Accent underline */
+.wwm-social-card::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--ice);
+  background: var(--brand, var(--ice));
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: left center;
   transition: transform 0.3s ease;
 }
 
-.wwm-social-item:hover {
-  background: var(--surface);
-  color: var(--text);
-}
-
-.wwm-social-item:hover::after {
+.wwm-social-card:hover::before {
   transform: scaleX(1);
 }
 
-.wwm-social-icon {
+.wwm-social-card:hover {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-2);
+  z-index: 1;
+}
+
+/* Icon box */
+.wwm-sc-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border: 1px solid var(--border);
   background: var(--surface-2);
+  color: var(--text-3);
+  flex-shrink: 0;
   transition: border-color 0.25s, color 0.25s, background 0.25s;
-  color: var(--text-2);
 }
 
-.wwm-social-item:hover .wwm-social-icon {
-  border-color: var(--ice);
-  color: var(--ice);
-  background: color-mix(in srgb, var(--ice) 8%, transparent);
+.wwm-social-card:hover .wwm-sc-icon {
+  border-color: var(--brand, var(--ice));
+  color: var(--brand, var(--ice));
+  background: color-mix(in srgb, var(--brand, var(--ice)) 10%, transparent);
 }
 
-.wwm-social-label {
+.wwm-sc-name {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.wwm-sc-sub {
   font-family: var(--font-plex-mono), monospace;
   font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.wwm-social-arrow {
-  font-size: 12px;
+.wwm-sc-arrow {
+  font-size: 13px;
   color: var(--text-3);
   transition: transform 0.2s, color 0.2s;
+  line-height: 1;
 }
 
-.wwm-social-item:hover .wwm-social-arrow {
-  color: var(--ice);
-  transform: translate(2px, -2px);
+.wwm-social-card:hover .wwm-sc-arrow {
+  color: var(--brand, var(--ice));
+  transform: translate(3px, -3px);
 }
 
-/* Contact info pills */
-.wwm-contact-info-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-
-.wwm-info-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 12px 22px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-2);
-  font-family: var(--font-plex-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.wwm-info-pill:hover {
-  border-color: var(--ice);
-  color: var(--ice);
-  background: color-mix(in srgb, var(--ice) 6%, transparent);
-}
-
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .wwm-contact-wrap {
+/* ── Responsive: 900px (tablet) ── */
+@media (max-width: 900px) {
+  .wwm-contact-panel {
     grid-template-columns: 1fr;
   }
 
-  .wwm-form-header {
+  .wwm-panel-left {
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 40px 36px 36px;
+    padding: 40px 36px;
   }
 
-  .wwm-form-body {
-    padding: 36px 36px 44px;
+  .wwm-contact-info {
+    margin-top: 28px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
   }
-}
 
-@media (max-width: 900px) {
+  .wwm-info-row {
+    flex: 1 1 200px;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+
+  .wwm-panel-right {
+    padding: 40px 36px;
+  }
+
   .wwm-social-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* Fix border on social cards */
+  .wwm-social-card {
+    border-right: none;
+  }
+
+  .wwm-social-card:last-child {
+    border-right: none;
+  }
+
+  /* Add right border to every 3rd card */
+  .wwm-social-card:nth-child(3n) {
+    border-right: 1px solid var(--border);
+  }
+
+  /* Bottom border for top row */
+  .wwm-social-card:nth-child(-n+3) {
+    border-bottom: none;
+  }
 }
 
+/* ── Responsive: 680px (mobile) ── */
 @media (max-width: 680px) {
-  .wwm-contact-wrap {
+  .wwm-contact-panel {
     margin-top: 48px;
   }
 
-  .wwm-form-header {
-    padding: 32px 24px 28px;
+  .wwm-panel-left {
+    padding: 32px 24px;
   }
 
-  .wwm-form-body {
-    padding: 28px 24px 36px;
+  .wwm-panel-right {
+    padding: 32px 24px;
   }
 
   .wwm-field-row {
     grid-template-columns: 1fr;
-  }
-
-  .wwm-social-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
   }
 
   .wwm-submit {
@@ -2140,31 +2237,69 @@ section {
     align-self: stretch;
   }
 
+  .wwm-contact-info {
+    flex-direction: column;
+  }
+
+  .wwm-info-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    word-break: break-all;
+  }
+
   .wwm-social-section {
     margin-top: 48px;
-  }
-}
-
-@media (max-width: 480px) {
-  .wwm-form-header {
-    padding: 28px 20px 24px;
-  }
-
-  .wwm-form-body {
-    padding: 24px 20px 32px;
   }
 
   .wwm-social-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .wwm-contact-info-row {
-    flex-direction: column;
+  /* Reset all borders then re-add */
+  .wwm-social-card {
+    border-right: none;
   }
 
-  .wwm-info-pill {
-    width: 100%;
-    justify-content: center;
+  .wwm-social-card:nth-child(3n) {
+    border-right: none;
+  }
+
+  .wwm-social-card:nth-child(even) {
+    border-right: 1px solid var(--border);
+  }
+
+  .wwm-social-card:last-child {
+    border-right: 1px solid var(--border);
+  }
+}
+
+/* ── Responsive: 420px (small phones) ── */
+@media (max-width: 420px) {
+  .wwm-social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wwm-social-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 18px 20px;
+    gap: 16px;
+    border-right: 1px solid var(--border) !important;
+    border-bottom: none;
+    border-top: none;
+  }
+
+  .wwm-social-card:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .wwm-sc-arrow {
+    margin-left: auto;
+  }
+
+  .wwm-sc-sub {
+    display: none;
   }
 }
 
