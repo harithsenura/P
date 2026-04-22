@@ -1711,30 +1711,45 @@ section {
 }
 
 /* ══ WORK WITH ME — FORM & SOCIAL ══════════════════════════ */
+
+/* ── Two-column contact layout ── */
 .wwm-contact-wrap {
   margin-top: 64px;
   border: 1px solid var(--border);
   background: var(--card-bg);
-  padding: 52px 52px 56px;
+  padding: 0;
   transition: background 0.35s ease, border-color 0.35s ease;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
 }
 
-.wwm-contact-wrap::before {
+.wwm-contact-wrap::after {
   content: '';
   position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 260px;
-  height: 260px;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(144, 184, 207, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(144, 184, 207, 0.06) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
 
+
+
 .wwm-form-header {
-  margin-bottom: 40px;
+  padding: 48px 40px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  transition: background 0.35s ease;
 }
 
 .wwm-form-eyebrow {
@@ -1773,6 +1788,13 @@ section {
   letter-spacing: 0.06em;
 }
 
+.wwm-form-body {
+  padding: 48px 40px;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
 .wwm-form {
   display: flex;
   flex-direction: column;
@@ -1782,7 +1804,8 @@ section {
 .wwm-field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
+  min-width: 0;
 }
 
 .wwm-field {
@@ -1801,18 +1824,20 @@ section {
 }
 
 .wwm-input {
-  background: var(--surface);
+  box-sizing: border-box;
+  background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
   font-family: var(--font-plex-mono), monospace;
   font-size: 13px;
-  padding: 14px 16px;
+  padding: 13px 14px;
   outline: none;
   transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   width: 100%;
   resize: none;
   border-radius: 0;
   -webkit-appearance: none;
+  display: block;
 }
 
 .wwm-input::placeholder {
@@ -1841,7 +1866,7 @@ section {
   justify-content: center;
   gap: 10px;
   align-self: flex-start;
-  padding: 14px 32px;
+  padding: 13px 28px;
   background: var(--text);
   color: var(--bg);
   border: 1px solid var(--text);
@@ -1851,8 +1876,8 @@ section {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 168px;
-  min-height: 48px;
+  min-width: 160px;
+  min-height: 46px;
 }
 
 .wwm-submit:hover:not(:disabled) {
@@ -1962,6 +1987,7 @@ section {
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
   background: var(--border);
+  width: 100%;
 }
 
 .wwm-social-item {
@@ -2066,6 +2092,22 @@ section {
 }
 
 /* ── Responsive ── */
+@media (max-width: 1024px) {
+  .wwm-contact-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .wwm-form-header {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 40px 36px 36px;
+  }
+
+  .wwm-form-body {
+    padding: 36px 36px 44px;
+  }
+}
+
 @media (max-width: 900px) {
   .wwm-social-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -2074,7 +2116,15 @@ section {
 
 @media (max-width: 680px) {
   .wwm-contact-wrap {
-    padding: 36px 28px 40px;
+    margin-top: 48px;
+  }
+
+  .wwm-form-header {
+    padding: 32px 24px 28px;
+  }
+
+  .wwm-form-body {
+    padding: 28px 24px 36px;
   }
 
   .wwm-field-row {
@@ -2087,16 +2137,34 @@ section {
 
   .wwm-submit {
     width: 100%;
+    align-self: stretch;
+  }
+
+  .wwm-social-section {
+    margin-top: 48px;
   }
 }
 
 @media (max-width: 480px) {
+  .wwm-form-header {
+    padding: 28px 20px 24px;
+  }
+
+  .wwm-form-body {
+    padding: 24px 20px 32px;
+  }
+
   .wwm-social-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .wwm-contact-info-row {
     flex-direction: column;
+  }
+
+  .wwm-info-pill {
+    width: 100%;
+    justify-content: center;
   }
 }
 

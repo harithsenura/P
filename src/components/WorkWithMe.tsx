@@ -157,78 +157,83 @@ export default function WorkWithMe() {
         </div>
 
         {submitted ? (
-          <div className="wwm-success">
-            <div className="wwm-success-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="32" height="32">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
+          <div className="wwm-form-body">
+            <div className="wwm-success">
+              <div className="wwm-success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="32" height="32">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div className="wwm-success-title">Message Sent!</div>
+              <p className="wwm-success-desc">Thanks for reaching out. I&apos;ll reply within 24 hours.</p>
+              <button className="wwm-reset-btn" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', message: '' }); }}>
+                Send another
+              </button>
             </div>
-            <div className="wwm-success-title">Message Sent!</div>
-            <p className="wwm-success-desc">Thanks for reaching out. I&apos;ll reply within 24 hours.</p>
-            <button className="wwm-reset-btn" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', message: '' }); }}>
-              Send another
-            </button>
           </div>
         ) : (
-          <form className="wwm-form" onSubmit={handleSubmit} id="contact-form" noValidate>
-            <div className="wwm-field-row">
-              <div className="wwm-field">
-                <label className="wwm-label" htmlFor="wwm-name">Name</label>
-                <input
-                  id="wwm-name"
-                  className="wwm-input"
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={formState.name}
-                  onChange={handleChange}
-                  required
-                  autoComplete="name"
-                />
+          <div className="wwm-form-body">
+            <form className="wwm-form" onSubmit={handleSubmit} id="contact-form" noValidate>
+              <div className="wwm-field-row">
+                <div className="wwm-field">
+                  <label className="wwm-label" htmlFor="wwm-name">Name</label>
+                  <input
+                    id="wwm-name"
+                    className="wwm-input"
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    value={formState.name}
+                    onChange={handleChange}
+                    required
+                    autoComplete="name"
+                  />
+                </div>
+                <div className="wwm-field">
+                  <label className="wwm-label" htmlFor="wwm-email">Email</label>
+                  <input
+                    id="wwm-email"
+                    className="wwm-input"
+                    type="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    value={formState.email}
+                    onChange={handleChange}
+                    required
+                    autoComplete="email"
+                  />
+                </div>
               </div>
               <div className="wwm-field">
-                <label className="wwm-label" htmlFor="wwm-email">Email</label>
-                <input
-                  id="wwm-email"
-                  className="wwm-input"
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  value={formState.email}
+                <label className="wwm-label" htmlFor="wwm-message">Message</label>
+                <textarea
+                  id="wwm-message"
+                  className="wwm-input wwm-textarea"
+                  name="message"
+                  placeholder="Tell me about your project, idea, or opportunity..."
+                  value={formState.message}
                   onChange={handleChange}
                   required
-                  autoComplete="email"
+                  rows={5}
                 />
               </div>
-            </div>
-            <div className="wwm-field">
-              <label className="wwm-label" htmlFor="wwm-message">Message</label>
-              <textarea
-                id="wwm-message"
-                className="wwm-input wwm-textarea"
-                name="message"
-                placeholder="Tell me about your project, idea, or opportunity..."
-                value={formState.message}
-                onChange={handleChange}
-                required
-                rows={5}
-              />
-            </div>
-            <button
-              id="wwm-submit"
-              type="submit"
-              className={`wwm-submit${submitting ? ' submitting' : ''}`}
-              disabled={submitting}
-            >
-              {submitting ? (
-                <span className="wwm-spinner" />
-              ) : (
-                <><Send size={14} /><span>Send Message</span></>
-              )}
-            </button>
-          </form>
+              <button
+                id="wwm-submit"
+                type="submit"
+                className={`wwm-submit${submitting ? ' submitting' : ''}`}
+                disabled={submitting}
+              >
+                {submitting ? (
+                  <span className="wwm-spinner" />
+                ) : (
+                  <><Send size={14} /><span>Send Message</span></>
+                )}
+              </button>
+            </form>
+          </div>
         )}
       </div>
+
 
       {/* ── Social & Contact Info Section ── */}
       <div className="wwm-social-section">
