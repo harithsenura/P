@@ -101,8 +101,17 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                     <a href="#" className="pd-lnk pri" onClick={handleAppStoreClick}>Download on App Store</a>
                   ) : (
                     <>
-                      <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
-                      <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                      {project.links.live !== '#' && (
+                        <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
+                      )}
+                      <a 
+                        href={project.links.github} 
+                        className={`pd-lnk ${project.links.live === '#' ? 'pri' : ''}`} 
+                        target="_blank" 
+                        rel="noreferrer"
+                      >
+                        GitHub →
+                      </a>
                     </>
                   )}
                 </div>
@@ -127,8 +136,17 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                   <a href="#" className="pd-lnk pri" onClick={handleAppStoreClick}>Download on App Store</a>
                 ) : (
                   <>
-                    <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
-                    <a href={project.links.github} className="pd-lnk" target="_blank" rel="noreferrer">GitHub →</a>
+                    {project.links.live !== '#' && (
+                      <a href={project.links.live} className="pd-lnk pri" target="_blank" rel="noreferrer">Live Demo ↗</a>
+                    )}
+                    <a 
+                      href={project.links.github} 
+                      className={`pd-lnk ${project.links.live === '#' ? 'pri' : ''}`} 
+                      target="_blank" 
+                      rel="noreferrer"
+                    >
+                      GitHub →
+                    </a>
                   </>
                 )}
               </div></div>
