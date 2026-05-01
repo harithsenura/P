@@ -194,7 +194,7 @@ export default function Hero() {
           >
             {isDark ? <Sun size={15} /> : <Moon size={15} />}
           </button>
-          <a href="#contact" className="nav-cta">Hire Me</a>
+          <a href="#work-with-me" className="nav-cta">Hire Me</a>
         </div>
       </div>
 
