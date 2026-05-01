@@ -171,13 +171,13 @@ export default function WorkWithMe() {
 
           {/* Contact info */}
           <div className="wwm-contact-info">
-            <a href="tel:+94XXXXXXXXX" className="wwm-info-row" id="contact-phone">
+            <a href="tel:+94772702123" className="wwm-info-row" id="contact-phone">
               <span className="wwm-info-icon"><Phone size={15} /></span>
-              <span className="wwm-info-text">+94 7X XXX XXXX</span>
+              <span className="wwm-info-text">+94 77 270 2123</span>
             </a>
-            <a href="mailto:harithsenura@gmail.com" className="wwm-info-row" id="contact-email">
+            <a href="mailto:harithdivarathna@gmail.com" className="wwm-info-row" id="contact-email">
               <span className="wwm-info-icon"><Mail size={15} /></span>
-              <span className="wwm-info-text">harithsenura@gmail.com</span>
+              <span className="wwm-info-text">harithdivarathna@gmail.com</span>
             </a>
           </div>
         </div>
