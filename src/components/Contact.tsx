@@ -26,9 +26,7 @@ export default function Contact() {
       <div className="contact-eye">Open to projects · collaborations · full-time roles</div>
       <h2 className="contact-h"><span className="ln1">LET&apos;S BUILD</span><br /><span className="ln2">TOGETHER.</span></h2>
       <div className="contact-btns">
-        <a href="mailto:yourname@email.com" className="c-btn p">Email Me</a>
-        <a href="https://github.com/" className="c-btn" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://linkedin.com/" className="c-btn" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://linkedin.com/" className="c-btn p" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="#" className="c-btn">Download CV</a>
       </div>
     </section>
