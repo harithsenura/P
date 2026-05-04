@@ -2407,6 +2407,16 @@ section {
   .wwm-sc-sub {
     display: none;
   }
+
+  .contact-h {
+    font-size: clamp(32px, 10vw, 40px);
+    margin-bottom: 36px;
+  }
+
+  .c-btn {
+    flex: 1 1 100%;
+    padding: 12px 16px;
+  }
 }
 
 
@@ -2765,6 +2775,44 @@ footer span {
 
   .pd-desktop-links {
     display: none !important;
+  }
+
+  /* Contact section mobile fixes */
+  #contact {
+    padding: 80px 5vw 60px;
+    min-height: auto;
+  }
+
+  .contact-eye {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    max-width: 300px;
+  }
+
+  .contact-h {
+    font-size: clamp(36px, 11vw, 54px);
+    margin-bottom: 48px;
+    line-height: 0.95;
+  }
+
+  .contact-h .ln2 {
+    -webkit-text-stroke: 1px var(--border-2);
+  }
+
+  .contact-btns {
+    gap: 8px;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .c-btn {
+    padding: 12px 18px;
+    font-size: 10px;
+    flex: 1 1 calc(50% - 4px);
+    text-align: center;
+    white-space: nowrap;
   }
 }
 
