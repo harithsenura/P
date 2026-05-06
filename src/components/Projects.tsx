@@ -45,8 +45,34 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
 
   return (
     <div ref={secRef}>
-      <section id="mobile-projects" style={{ paddingBottom: '20px' }}>
-        <div className="sec-hd"><span className="sec-num">03</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Mobile)</h2><div className="sec-rule"></div></div>
+      <section id="python-projects" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
+        <div className="sec-hd"><span className="sec-num">03</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Python)</h2><div className="sec-rule"></div></div>
+        <div className="projects-grid">
+          {pythonProjects.map((p) => (
+            <button 
+              key={p.id} 
+              className="project-card" 
+              style={{ borderColor: '#EAB308' }} 
+              onClick={() => onOpenDetail(p)}
+              onTouchStart={() => {}}
+            >
+              <div className="pc-body">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <div className="pc-tags" style={{ marginBottom: 0 }}>{p.tags.map((t, i) => <span key={i} className="pc-tag">{t}</span>)}</div>
+                  <span className="pc-plat" style={{ position: 'static', margin: 0 }}>{p.plat}</span>
+                </div>
+                <div className="pc-name">{p.name}</div>
+                <p className="pc-desc">{p.short}</p>
+                <div className="pc-tech">{p.tech.slice(0, 4).map((t, i) => <span key={i} className="pc-pill">{t}</span>)}</div>
+              </div>
+              <div className="pc-view-btn">View</div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section id="mobile-projects" style={{ paddingBottom: '20px', paddingTop: '60px' }}>
+        <div className="sec-hd"><span className="sec-num">04</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Mobile)</h2><div className="sec-rule"></div></div>
         <div className="projects-grid">
           {mobileProjects.map((p) => (
             <button 
@@ -72,7 +98,7 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
       </section>
 
       <section id="projects" style={{ paddingTop: '120px' }}>
-        <div className="sec-hd"><span className="sec-num">04</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Web)</h2></div>
+        <div className="sec-hd"><span className="sec-num">05</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Web)</h2></div>
 
         <div className="projects-grid" ref={gridRef}>
           {webProjects.map((p) => (
@@ -80,32 +106,6 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
               key={p.id} 
               className="project-card" 
               data-cat={p.cat} 
-              onClick={() => onOpenDetail(p)}
-              onTouchStart={() => {}}
-            >
-              <div className="pc-body">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <div className="pc-tags" style={{ marginBottom: 0 }}>{p.tags.map((t, i) => <span key={i} className="pc-tag">{t}</span>)}</div>
-                  <span className="pc-plat" style={{ position: 'static', margin: 0 }}>{p.plat}</span>
-                </div>
-                <div className="pc-name">{p.name}</div>
-                <p className="pc-desc">{p.short}</p>
-                <div className="pc-tech">{p.tech.slice(0, 4).map((t, i) => <span key={i} className="pc-pill">{t}</span>)}</div>
-              </div>
-              <div className="pc-view-btn">View</div>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section id="python-projects" style={{ paddingTop: '40px' }}>
-        <div className="sec-hd"><span className="sec-num">05</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Python)</h2><div className="sec-rule"></div></div>
-        <div className="projects-grid">
-          {pythonProjects.map((p) => (
-            <button 
-              key={p.id} 
-              className="project-card" 
-              style={{ borderColor: '#EAB308' }} 
               onClick={() => onOpenDetail(p)}
               onTouchStart={() => {}}
             >
