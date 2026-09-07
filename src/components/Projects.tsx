@@ -40,15 +40,15 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
   };
 
   const mobileProjects = PROJECTS.filter(p => p.cat === 'mobile');
-  const webProjects = PROJECTS.filter(p => p.cat !== 'mobile' && p.cat !== 'python');
-  const pythonProjects = PROJECTS.filter(p => p.cat === 'python');
+  const webProjects = PROJECTS.filter(p => p.cat !== 'mobile' && p.cat !== 'ongoing');
+  const ongoingProjects = PROJECTS.filter(p => p.cat === 'ongoing');
 
   return (
     <div ref={secRef}>
-      <section id="python-projects" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
-        <div className="sec-hd"><span className="sec-num">03</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Projects (Python)</h2><div className="sec-rule"></div></div>
+      <section id="ongoing-projects" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
+        <div className="sec-hd"><span className="sec-num">03</span><h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>Ongoing projects</h2><div className="sec-rule"></div></div>
         <div className="projects-grid">
-          {pythonProjects.map((p) => (
+          {ongoingProjects.map((p) => (
             <button 
               key={p.id} 
               className="project-card" 
