@@ -117,7 +117,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 </div>
               </div>
 
-              <div><div className="pd-sec-lbl">Overview</div><p className="pd-overview" id="pdDesc">{project.desc}</p></div>
+              <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
               <div><div className="pd-sec-lbl">Screenshots</div><div className="pd-gal-grid" id="pdGallery">
                 {project.gallery.map(img => <div key={img} className="pd-gal-box"><img className="pd-gal-img" src={img} alt="" loading="lazy" /></div>)}
               </div></div>

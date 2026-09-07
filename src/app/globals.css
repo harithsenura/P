@@ -1445,6 +1445,40 @@ section {
   color: var(--text-2);
   white-space: pre-line;
 }
+.pd-overview h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 28px;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.pd-overview p {
+  margin-bottom: 8px;
+}
+.pd-overview ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pd-overview ul li {
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+.pd-overview ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
+  font-size: 14px;
+}
+.pd-overview ul li strong {
+  color: #e2e8f0;
+}
 
 /* Gallery */
 .pd-gal-grid {
