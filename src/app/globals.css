@@ -1448,7 +1448,7 @@ section {
 .pd-overview h3 {
   font-size: 19px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   margin-top: 28px;
   margin-bottom: 6px;
   letter-spacing: -0.01em;
@@ -1477,7 +1477,7 @@ section {
   font-size: 14px;
 }
 .pd-overview ul li strong {
-  color: #e2e8f0;
+  color: var(--text);
 }
 
 /* Gallery */
