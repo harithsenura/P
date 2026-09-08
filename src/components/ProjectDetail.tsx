@@ -129,11 +129,12 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                   </div>
                   {/* Video */}
                   <video
-                    src={project.video.replace('/upload/', '/upload/f_mp4/')}
+                    src={project.video}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
                   />
                 </div>
