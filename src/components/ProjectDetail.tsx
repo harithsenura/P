@@ -132,11 +132,20 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                     <button 
                       onClick={(e) => {
                         const videoWrap = e.currentTarget.closest('.video-container');
+                        const video = videoWrap?.querySelector('video') as any;
+                        
                         if (videoWrap && videoWrap.requestFullscreen) {
                           videoWrap.requestFullscreen();
-                        } else {
-                          const video = e.currentTarget.closest('.video-container')?.querySelector('video');
-                          if (video && video.requestFullscreen) video.requestFullscreen();
+                        } else if (video) {
+                          if (video.requestFullscreen) {
+                            video.requestFullscreen();
+                          } else if (video.webkitEnterFullscreen) {
+                            video.webkitEnterFullscreen();
+                          } else if (video.mozRequestFullScreen) {
+                            video.mozRequestFullScreen();
+                          } else if (video.msRequestFullscreen) {
+                            video.msRequestFullscreen();
+                          }
                         }
                       }}
                       style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', cursor: 'pointer', padding: '6px', pointerEvents: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
@@ -155,8 +164,8 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                     loop
                     muted
                     playsInline
-                    preload="auto"
-                    style={{ display: 'block', maxWidth: '100%', height: 'auto', maxHeight: '80vh' }}
+                    preload="metadata"
+                    style={{ display: 'block', width: '100%', height: 'auto', maxHeight: '80vh', objectFit: 'contain' }}
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
