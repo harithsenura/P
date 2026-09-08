@@ -23,27 +23,27 @@ export default function GithubContributions() {
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    gsap.from(containerRef.current.querySelector('.sec-hd')?.children || [], {
+    gsap.from('.gh-title', {
       scrollTrigger: { trigger: containerRef.current, start: 'top 85%' },
-      y: 20, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power3.out'
+      y: 20, opacity: 0, duration: 0.7, ease: 'power3.out'
     });
 
     gsap.from('.gh-card', {
       scrollTrigger: { trigger: '.gh-card', start: 'top 85%' },
-      y: 30, opacity: 0, duration: 0.8, ease: 'power3.out'
+      y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.1
     });
 
     const observer = new MutationObserver((mutations) => {
       const rects = containerRef.current?.querySelectorAll('rect');
       if (rects && rects.length > 0) {
         gsap.fromTo(rects, 
-          { opacity: 0, scale: 0.5 },
+          { opacity: 0, scale: 0.2 },
           { 
             opacity: 1, 
             scale: 1, 
-            stagger: 0.002, 
-            duration: 0.3, 
-            ease: 'back.out(1.5)',
+            stagger: 0.0015, 
+            duration: 0.4, 
+            ease: 'back.out(2)',
             scrollTrigger: {
               trigger: '.gh-card',
               start: 'top 85%'
@@ -60,49 +60,50 @@ export default function GithubContributions() {
   }, { scope: containerRef });
 
   return (
-    <section id="github-contributions" style={{ padding: '40px 0 80px 0' }} ref={containerRef}>
-      <div className="sec-hd">
-        <span className="sec-num">05</span>
-        <h2 className="sec-title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>GitHub Contributions</h2>
-        <div className="sec-rule"></div>
+    <section id="github-contributions" style={{ padding: '20px 0 100px 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }} ref={containerRef}>
+      {/* Sleek eyebrow title */}
+      <div className="gh-title" style={{
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '10px', 
+        fontSize: '12px', 
+        fontWeight: 600,
+        textTransform: 'uppercase', 
+        letterSpacing: '2px', 
+        color: '#8b949e', 
+        marginBottom: '32px',
+        fontFamily: 'var(--font-inter), sans-serif'
+      }}>
+        <div style={{
+          width: '8px', 
+          height: '8px', 
+          borderRadius: '50%', 
+          backgroundColor: '#39d353', 
+          boxShadow: '0 0 12px #39d353'
+        }}></div>
+        GitHub Activity
       </div>
       
+      {/* Clean wrapper without heavy background */}
       <div className="gh-card" style={{
-        marginTop: '32px',
-        backgroundColor: '#0f0f11',
-        padding: '40px',
-        borderRadius: '16px',
-        border: '1px solid rgba(255,255,255,0.08)',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05)',
         display: 'flex',
         justifyContent: 'center',
         overflowX: 'auto',
-        position: 'relative'
+        width: '100%',
+        maxWidth: '1000px',
       }}>
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '60%',
-          height: '60%',
-          background: 'radial-gradient(circle, rgba(38,166,65,0.08) 0%, rgba(0,0,0,0) 70%)',
-          pointerEvents: 'none',
-          zIndex: 0
-        }}></div>
-
-        <div style={{ minWidth: '800px', width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
+        <div style={{ minWidth: '750px', display: 'flex', justifyContent: 'center' }}>
           {loading ? (
-            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '40px' }}>Loading real-time data...</div>
+            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '20px', fontSize: '13px' }}>Loading real-time data...</div>
           ) : data.length === 0 ? (
-            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '40px' }}>Unable to load contributions data.</div>
+            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '20px', fontSize: '13px' }}>Unable to load contributions data.</div>
           ) : (
             <ActivityCalendar 
               data={data}
               colorScheme="dark"
-              blockSize={15}
-              blockMargin={5}
-              fontSize={14}
+              blockSize={13}
+              blockMargin={4}
+              fontSize={12}
               theme={{
                 dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
               }}
