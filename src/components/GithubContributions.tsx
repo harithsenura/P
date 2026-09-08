@@ -1,33 +1,38 @@
 'use client';
-import React, { useRef } from 'react';
-import { GitHubCalendar } from 'react-github-calendar';
+import React, { useRef, useEffect, useState } from 'react';
+import ActivityCalendar from 'react-activity-calendar';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { fetchGithubContributions, Activity } from '@/lib/github';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function GithubContributions() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchGithubContributions('harithsenura', 2026).then(res => {
+      setData(res);
+      setLoading(false);
+    });
+  }, []);
 
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    // Animate the section header
     gsap.from(containerRef.current.querySelector('.sec-hd')?.children || [], {
       scrollTrigger: { trigger: containerRef.current, start: 'top 85%' },
       y: 20, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power3.out'
     });
 
-    // Animate the main card
     gsap.from('.gh-card', {
       scrollTrigger: { trigger: '.gh-card', start: 'top 85%' },
       y: 30, opacity: 0, duration: 0.8, ease: 'power3.out'
     });
 
-    // We can also animate the individual calendar squares after the API loads them.
-    // The calendar might take a moment to fetch data, so we wait until it's rendered.
-    // A simple trick is observing the DOM for the rect elements.
     const observer = new MutationObserver((mutations) => {
       const rects = containerRef.current?.querySelectorAll('rect');
       if (rects && rects.length > 0) {
@@ -74,7 +79,6 @@ export default function GithubContributions() {
         overflowX: 'auto',
         position: 'relative'
       }}>
-        {/* Subtle background glow effect */}
         <div style={{
           position: 'absolute',
           top: '50%',
@@ -88,22 +92,25 @@ export default function GithubContributions() {
         }}></div>
 
         <div style={{ minWidth: '800px', width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
-          <GitHubCalendar 
-            username="harithsenura" 
-            colorScheme="dark"
-            year={2026}
-            blockSize={15}
-            blockMargin={5}
-            fontSize={14}
-            theme={{
-              dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-            }}
-            style={{
-              fontFamily: 'var(--font-inter), sans-serif',
-              fontWeight: 500,
-              color: '#8b949e'
-            }}
-          />
+          {loading ? (
+            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '40px' }}>Loading real-time data...</div>
+          ) : (
+            <ActivityCalendar 
+              data={data}
+              colorScheme="dark"
+              blockSize={15}
+              blockMargin={5}
+              fontSize={14}
+              theme={{
+                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+              }}
+              style={{
+                fontFamily: 'var(--font-inter), sans-serif',
+                fontWeight: 500,
+                color: '#8b949e'
+              }}
+            />
+          )}
         </div>
       </div>
     </section>
