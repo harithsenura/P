@@ -13,10 +13,18 @@ export default function GithubContributions() {
   const [data, setData] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     fetchGithubContributions('harithsenura', 2026).then(res => {
       setData(res);
       setLoading(false);
+      // Auto-scroll to the rightmost (latest data) on mobile
+      setTimeout(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
+        }
+      }, 300);
     });
   }, []);
 
@@ -61,6 +69,16 @@ export default function GithubContributions() {
 
   return (
     <section id="github-contributions" style={{ padding: '20px 0 100px 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }} ref={containerRef}>
+      <style>{`
+        .gh-scroll-container::-webkit-scrollbar { display: none; }
+        .gh-scroll-container { 
+          -ms-overflow-style: none; 
+          scrollbar-width: none; 
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+      `}</style>
+      
       {/* Sleek eyebrow title */}
       <div className="gh-title" style={{
         display: 'flex', 
@@ -84,36 +102,45 @@ export default function GithubContributions() {
         GitHub Activity
       </div>
       
-      {/* Clean wrapper without heavy background */}
+      {/* Clean wrapper with responsive horizontal scroll */}
       <div className="gh-card" style={{
-        display: 'flex',
-        justifyContent: 'center',
-        overflowX: 'auto',
         width: '100%',
         maxWidth: '1000px',
+        position: 'relative'
       }}>
-        <div style={{ minWidth: '750px', display: 'flex', justifyContent: 'center' }}>
-          {loading ? (
-            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '20px', fontSize: '13px' }}>Loading real-time data...</div>
-          ) : data.length === 0 ? (
-            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '20px', fontSize: '13px' }}>Unable to load contributions data.</div>
-          ) : (
-            <ActivityCalendar 
-              data={data}
-              colorScheme="dark"
-              blockSize={13}
-              blockMargin={4}
-              fontSize={12}
-              theme={{
-                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-              }}
-              style={{
-                fontFamily: 'var(--font-inter), sans-serif',
-                fontWeight: 500,
-                color: '#8b949e'
-              }}
-            />
-          )}
+        <div 
+          className="gh-scroll-container"
+          ref={scrollRef}
+          style={{
+            overflowX: 'auto',
+            width: '100%',
+            display: 'flex',
+            padding: '0 20px',
+          }}
+        >
+          <div style={{ minWidth: '750px', margin: '0 auto' }}>
+            {loading ? (
+              <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '20px', fontSize: '13px', textAlign: 'center' }}>Loading real-time data...</div>
+            ) : data.length === 0 ? (
+              <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '20px', fontSize: '13px', textAlign: 'center' }}>Unable to load contributions data.</div>
+            ) : (
+              <ActivityCalendar 
+                data={data}
+                colorScheme="dark"
+                blockSize={13}
+                blockMargin={4}
+                fontSize={12}
+                theme={{
+                  dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                }}
+                style={{
+                  fontFamily: 'var(--font-inter), sans-serif',
+                  fontWeight: 500,
+                  color: '#8b949e'
+                }}
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>
