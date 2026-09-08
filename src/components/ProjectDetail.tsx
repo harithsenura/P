@@ -120,12 +120,34 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
 
               {project.video && (
-                <div style={{ marginTop: '32px', marginBottom: '40px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#0f0f11', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
-                  {/* macOS Top Bar */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 16px', backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e' }} />
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f' }} />
+                <div className="video-container" style={{ position: 'relative', marginTop: '32px', marginBottom: '40px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', aspectRatio: '16/9' }}>
+                  {/* Modern floating macOS Top Bar */}
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', zIndex: 10, background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%)', pointerEvents: 'none' }}>
+                    <div style={{ display: 'flex', gap: '8px', pointerEvents: 'auto' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56', boxShadow: '0 0 10px rgba(255,95,86,0.3)' }} />
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', boxShadow: '0 0 10px rgba(255,189,46,0.3)' }} />
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f', boxShadow: '0 0 10px rgba(39,201,63,0.3)' }} />
+                    </div>
+                    {/* Fullscreen Icon */}
+                    <button 
+                      onClick={(e) => {
+                        const videoWrap = e.currentTarget.closest('.video-container');
+                        if (videoWrap && videoWrap.requestFullscreen) {
+                          videoWrap.requestFullscreen();
+                        } else {
+                          const video = e.currentTarget.closest('.video-container')?.querySelector('video');
+                          if (video && video.requestFullscreen) video.requestFullscreen();
+                        }
+                      }}
+                      style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', cursor: 'pointer', padding: '6px', pointerEvents: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.5)'}
+                      title="Fullscreen"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                      </svg>
+                    </button>
                   </div>
                   {/* Video */}
                   <video
@@ -134,7 +156,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                     muted
                     playsInline
                     preload="auto"
-                    style={{ display: 'block', width: '100%', height: 'auto' }}
+                    style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
