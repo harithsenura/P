@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Ticker from '@/components/Ticker';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
+import GithubContributions from '@/components/GithubContributions';
 
 import WorkWithMe from '@/components/WorkWithMe';
 import Contact from '@/components/Contact';
@@ -22,6 +23,7 @@ export default function Home() {
       <Ticker />
       <About />
       <Projects onOpenDetail={setActiveProject} />
+      <GithubContributions />
 
       <WorkWithMe />
       <Contact />

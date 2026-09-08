@@ -131,7 +131,7 @@ export default function WorkWithMe() {
 
       {/* ── Section Header ── */}
       <div className="sec-hd">
-        <span className="sec-num">05</span>
+        <span className="sec-num">06</span>
         <h2 className="sec-title">Work With Me</h2>
         <div className="sec-rule"></div>
       </div>
