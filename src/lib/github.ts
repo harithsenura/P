@@ -1,3 +1,4 @@
+'use server';
 import * as cheerio from 'cheerio';
 
 export type Activity = {

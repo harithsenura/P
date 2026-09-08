@@ -94,6 +94,8 @@ export default function GithubContributions() {
         <div style={{ minWidth: '800px', width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
           {loading ? (
             <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '40px' }}>Loading real-time data...</div>
+          ) : data.length === 0 ? (
+            <div style={{ color: '#8b949e', fontFamily: 'var(--font-inter)', padding: '40px' }}>Unable to load contributions data.</div>
           ) : (
             <ActivityCalendar 
               data={data}
