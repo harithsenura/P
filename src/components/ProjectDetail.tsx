@@ -117,8 +117,10 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 </div>
               </div>
 
+              <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
+
               {project.video && (
-                <div style={{ marginBottom: '40px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#0f0f11', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+                <div style={{ marginTop: '32px', marginBottom: '40px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#0f0f11', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
                   {/* macOS Top Bar */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 16px', backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
@@ -127,7 +129,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                   </div>
                   {/* Video */}
                   <video
-                    src={project.video}
+                    src={project.video.replace('/upload/', '/upload/f_mp4/')}
                     autoPlay
                     loop
                     muted
@@ -136,8 +138,6 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                   />
                 </div>
               )}
-
-              <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
               <div><div className="pd-sec-lbl">Screenshots</div><div className="pd-gal-grid" id="pdGallery">
                 {project.gallery.map(img => <div key={img} className="pd-gal-box"><img className="pd-gal-img" src={img} alt="" loading="lazy" /></div>)}
               </div></div>
