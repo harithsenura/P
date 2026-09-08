@@ -120,25 +120,24 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
 
               {project.video && (
-                <div style={{ marginTop: '32px', marginBottom: '40px', display: 'flex', justifyContent: 'center' }}>
-                  <div style={{ display: 'inline-block', width: 'fit-content', maxWidth: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#0f0f11', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
-                    {/* macOS Top Bar */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 16px', backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
-                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e' }} />
-                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f' }} />
-                    </div>
-                    {/* Video */}
-                    <video
-                      src={project.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      style={{ display: 'block', width: '100%', maxWidth: '100%', height: 'auto', aspectRatio: '16/9' }}
-                    />
+                <div style={{ marginTop: '32px', marginBottom: '40px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', backgroundColor: '#0f0f11', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+                  {/* macOS Top Bar */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 16px', backgroundColor: '#1a1a1c', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e' }} />
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f' }} />
                   </div>
+                  {/* Video */}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    style={{ display: 'block', width: '100%', height: 'auto' }}
+                  >
+                    <source src={project.video} type="video/mp4" />
+                  </video>
                 </div>
               )}
               <div><div className="pd-sec-lbl">Screenshots</div><div className="pd-gal-grid" id="pdGallery">
