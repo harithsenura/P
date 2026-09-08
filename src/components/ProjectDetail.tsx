@@ -120,7 +120,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
 
               {project.video && (
-                <div className="video-container" style={{ position: 'relative', marginTop: '32px', marginBottom: '40px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', aspectRatio: '16/9' }}>
+                <div className="video-container" style={{ position: 'relative', margin: '32px auto 40px auto', width: 'fit-content', maxWidth: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
                   {/* Modern floating macOS Top Bar */}
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', zIndex: 10, background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%)', pointerEvents: 'none' }}>
                     <div style={{ display: 'flex', gap: '8px', pointerEvents: 'auto' }}>
@@ -156,7 +156,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                     muted
                     playsInline
                     preload="auto"
-                    style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ display: 'block', maxWidth: '100%', height: 'auto', maxHeight: '80vh' }}
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
