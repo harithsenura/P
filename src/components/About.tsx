@@ -50,9 +50,9 @@ export default function About() {
           <span className="edu-st">Java Spring, .NET, PHP, MERN, Python, Django, Ruby</span>
         </div>
         <div className="edu-card">
-          <span className="edu-sch">Creative</span>
-          <span className="edu-deg">Web Designing</span>
-          <span className="edu-st">General, Interactive, e-commerce, event & mission critical</span>
+          <span className="edu-sch">Artificial Intelligence</span>
+          <span className="edu-deg">AI Engineering</span>
+          <span className="edu-st">LLMs, Agentic AI, RAG, Prompt Engineering & NLP</span>
         </div>
         <div className="edu-card">
           <span className="edu-sch">Security</span>
