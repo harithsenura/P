@@ -81,7 +81,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
     <div id="projectDetail" ref={overlayRef} style={{ display: 'none' }}>
       <div className="pd-topbar">
         <button className="pd-back" onClick={handleClose}>← Back to Projects</button>
-        <span className="pd-bar-title">{project?.name}</span>
+        <span className="pd-bar-title">{project?.name} {project?.cat === 'ongoing' ? '— Ongoing Project' : ''}</span>
         <span className="pd-esc-hint">ESC to close</span>
       </div>
       
@@ -90,6 +90,36 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
           <div className="pd-body" style={{ paddingTop: '40px' }}>
             <div className="pd-main">
               <div style={{ marginBottom: '12px' }}>
+                {project.cat === 'ongoing' && (
+                  <div className="pd-ongoing-pill" style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '6px 14px',
+                    borderRadius: '100px',
+                    background: 'rgba(234, 179, 8, 0.1)',
+                    border: '1px solid rgba(234, 179, 8, 0.35)',
+                    color: '#EAB308',
+                    fontFamily: 'var(--font-plex-mono), monospace',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    marginBottom: '14px',
+                    boxShadow: '0 0 20px rgba(234, 179, 8, 0.15)'
+                  }}>
+                    <span style={{
+                      width: '7px',
+                      height: '7px',
+                      borderRadius: '50%',
+                      backgroundColor: '#EAB308',
+                      boxShadow: '0 0 10px #EAB308',
+                      display: 'inline-block',
+                      animation: 'pulse 2.2s ease-in-out infinite'
+                    }} />
+                    Ongoing Project • In Active Development
+                  </div>
+                )}
                 <h1 className="pd-title">{project.name}</h1>
                 <p style={{ fontFamily: 'var(--font-plex-mono), monospace', fontSize: '13px', color: 'var(--text-2)' }}>{project.tagline}</p>
               </div>
@@ -97,7 +127,20 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               {/* Mobile Links - Shown only on mobile */}
               <div className="pd-info pd-mobile-links">
                 <div className="pd-links">
-                  {project.id === 'self' ? (
+                  {project.cat === 'ongoing' ? (
+                    <span className="pd-lnk" style={{
+                      cursor: 'default',
+                      borderColor: 'rgba(234, 179, 8, 0.4)',
+                      color: '#EAB308',
+                      background: 'rgba(234, 179, 8, 0.08)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                    }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#EAB308', boxShadow: '0 0 6px #EAB308' }} />
+                      Development in Progress
+                    </span>
+                  ) : project.id === 'self' ? (
                     <a href="#" className="pd-lnk pri" onClick={handleAppStoreClick}>Download on App Store</a>
                   ) : (
                     <>
@@ -116,6 +159,54 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                   )}
                 </div>
               </div>
+
+              {/* Ongoing Project Banner */}
+              {project.cat === 'ongoing' && (
+                <div className="pd-ongoing-card" style={{
+                  marginTop: '8px',
+                  marginBottom: '28px',
+                  padding: '22px 24px',
+                  borderRadius: '14px',
+                  background: 'linear-gradient(135deg, rgba(234, 179, 8, 0.08) 0%, rgba(234, 179, 8, 0.02) 100%)',
+                  border: '1px solid rgba(234, 179, 8, 0.25)',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 10px 30px -10px rgba(234, 179, 8, 0.15)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
+                    <div style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '8px',
+                      backgroundColor: 'rgba(234, 179, 8, 0.15)',
+                      border: '1px solid rgba(234, 179, 8, 0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#EAB308',
+                      fontSize: '15px'
+                    }}>
+                      ⚡
+                    </div>
+                    <div>
+                      <div style={{ 
+                        fontFamily: 'var(--font-plex-mono), monospace', 
+                        fontSize: '13px', 
+                        fontWeight: 600, 
+                        color: '#EAB308', 
+                        letterSpacing: '0.06em' 
+                      }}>
+                        STATUS: ACTIVE DEVELOPMENT
+                      </div>
+                      <div style={{ fontSize: '12px', color: 'var(--text-2)' }}>
+                        Currently being engineered &amp; refined
+                      </div>
+                    </div>
+                  </div>
+                  <p style={{ margin: 0, fontSize: '14px', lineHeight: 1.7, color: 'var(--text)' }}>
+                    This project is currently in the active development phase. Features, architecture, and UI/UX flows are continuously being built. Live previews, repository access, and release builds will be published upon release.
+                  </p>
+                </div>
+              )}
 
               <div><div className="pd-sec-lbl">Overview</div><div className="pd-overview" id="pdDesc" dangerouslySetInnerHTML={{ __html: project.desc }} /></div>
 
@@ -171,9 +262,11 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                   </video>
                 </div>
               )}
-              <div><div className="pd-sec-lbl">Screenshots</div><div className="pd-gal-grid" id="pdGallery">
-                {project.gallery.map(img => <div key={img} className="pd-gal-box"><img className="pd-gal-img" src={img} alt="" loading="lazy" /></div>)}
-              </div></div>
+              {project.gallery && project.gallery.length > 0 && (
+                <div><div className="pd-sec-lbl">Screenshots</div><div className="pd-gal-grid" id="pdGallery">
+                  {project.gallery.map(img => <div key={img} className="pd-gal-box"><img className="pd-gal-img" src={img} alt="" loading="lazy" /></div>)}
+                </div></div>
+              )}
               <div><div className="pd-sec-lbl">Key Features</div><ul className="pd-feats" id="pdFeats">
                 {project.features.map(f => <li key={f}>{f}</li>)}
               </ul></div>
@@ -184,8 +277,42 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 {project.tech.map(t => <span key={t} className="pd-tpill">{t}</span>)}
               </div></div>
               <div className="pd-info"><span className="pd-info-lbl">Category</span><span className="pd-cat-val" id="pdCat">{project.plat}</span></div>
+              {project.cat === 'ongoing' && (
+                <div className="pd-info">
+                  <span className="pd-info-lbl">Status</span>
+                  <div style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    color: '#EAB308', 
+                    fontFamily: 'var(--font-plex-mono), monospace', 
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    padding: '5px 12px',
+                    background: 'rgba(234, 179, 8, 0.1)',
+                    borderRadius: '6px',
+                    border: '1px solid rgba(234, 179, 8, 0.25)'
+                  }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#EAB308', boxShadow: '0 0 8px #EAB308' }} />
+                    In Active Progress
+                  </div>
+                </div>
+              )}
               <div className="pd-info pd-desktop-links"><span className="pd-info-lbl">Links</span><div className="pd-links" id="pdLinks">
-                {project.id === 'self' ? (
+                {project.cat === 'ongoing' ? (
+                  <span className="pd-lnk" style={{
+                    cursor: 'default',
+                    borderColor: 'rgba(234, 179, 8, 0.4)',
+                    color: '#EAB308',
+                    background: 'rgba(234, 179, 8, 0.08)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#EAB308', boxShadow: '0 0 6px #EAB308' }} />
+                    Development in Progress
+                  </span>
+                ) : project.id === 'self' ? (
                   <a href="#" className="pd-lnk pri" onClick={handleAppStoreClick}>Download on App Store</a>
                 ) : (
                   <>

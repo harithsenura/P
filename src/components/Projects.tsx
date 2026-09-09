@@ -58,14 +58,19 @@ export default function Projects({ onOpenDetail }: { onOpenDetail: (p: ProjectTy
             >
               <div className="pc-body">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <div className="pc-tags" style={{ marginBottom: 0 }}>{p.tags.map((t, i) => <span key={i} className="pc-tag">{t}</span>)}</div>
-                  <span className="pc-plat" style={{ position: 'static', margin: 0 }}>{p.plat}</span>
+                  <div className="pc-tags" style={{ marginBottom: 0 }}>
+                    <span className="pc-tag" style={{ color: '#EAB308', borderColor: 'rgba(234, 179, 8, 0.4)', background: 'rgba(234, 179, 8, 0.08)' }}>
+                      🟡 In Progress
+                    </span>
+                    {p.tags.map((t, i) => <span key={i} className="pc-tag">{t}</span>)}
+                  </div>
+                  <span className="pc-plat" style={{ position: 'static', margin: 0, color: '#EAB308', borderColor: 'rgba(234, 179, 8, 0.3)' }}>{p.plat}</span>
                 </div>
                 <div className="pc-name">{p.name}</div>
                 <p className="pc-desc">{p.short}</p>
                 <div className="pc-tech">{p.tech.slice(0, 4).map((t, i) => <span key={i} className="pc-pill">{t}</span>)}</div>
               </div>
-              <div className="pc-view-btn">View</div>
+              <div className="pc-view-btn" style={{ borderColor: 'rgba(234, 179, 8, 0.4)', color: '#EAB308', pointerEvents: 'none' }}>View</div>
             </button>
           ))}
         </div>
